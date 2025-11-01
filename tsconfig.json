@@ -1,0 +1,3 @@
+{
+  "extends": "@bakan/typescript-config/base.json"
+}
