@@ -8,6 +8,7 @@ bakan/
 │   ├── web/                     # website
 ├── packages/                    # Shared packages
 │   ├── typescript-config/       # typescript configuration
+│   ├── ui/                      # components
 │   └── ...
 └── ...
 ```
