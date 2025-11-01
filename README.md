@@ -10,8 +10,10 @@ bakan/
 │   ├── typescript-config/       # typescript configuration
 │   ├── ui/                      # components
 │   └── ...
+├── turbo/generators             # Generators for creating packages
 └── ...
 ```
+
 ## License
 
 MIT
