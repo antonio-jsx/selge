@@ -1,6 +1,6 @@
 {
   "extends": "@bakan/typescript-config/nextjs.json",
-  "include": ["**/*.ts"],
+  "include": ["**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules", "dist"],
   "compilerOptions": {
     "baseUrl": "."
