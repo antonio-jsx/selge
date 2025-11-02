@@ -9,6 +9,7 @@ bakan/
 ├── packages/                    # Shared packages
 │   ├── typescript-config/       # typescript configuration
 │   ├── ui/                      # components
+│   ├── database/                # database drizzle orm
 │   └── ...
 ├── turbo/generators             # Generators for creating packages
 └── ...
