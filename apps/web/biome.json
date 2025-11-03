@@ -1,10 +1,27 @@
 {
-  "root": false,
+  "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
   "extends": "//",
   "linter": {
-    "enabled": true,
     "rules": {
       "recommended": true,
+      "correctness": {
+        "noChildrenProp": "error",
+        "noNestedComponentDefinitions": "error",
+        "noReactPropAssignments": "error",
+        "useExhaustiveDependencies": "warn",
+        "useHookAtTopLevel": "error",
+        "useJsxKeyInIterable": "error"
+      },
+      "suspicious": {
+        "noArrayIndexKey": "warn"
+      },
+      "style": {
+        "useReactFunctionComponents": "error"
+      },
+      "security": {
+        "noDangerouslySetInnerHtml": "warn",
+        "noDangerouslySetInnerHtmlWithChildren": "warn"
+      },
       "nursery": {
         "noNextAsyncClientComponent": "error",
         "useSortedClasses": {
@@ -15,10 +32,6 @@
           }
         }
       }
-    },
-    "domains": {
-      "next": "recommended",
-      "react": "recommended"
     }
   }
 }
