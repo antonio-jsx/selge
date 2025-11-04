@@ -1,6 +1,6 @@
 import { Cart } from '@/components/cart';
 import { Logo } from '@/components/logo';
-import { Button } from '@bakan/ui/components/button';
+import { Profile } from '@/components/profile';
 import Link from 'next/link';
 
 const menuItems = [
@@ -37,9 +37,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               </div>
 
               <div className="flex items-center gap-2">
-                <Button asChild>
-                  <Link href="/signin">Sign In</Link>
-                </Button>
+                <Profile />
                 <Cart />
               </div>
             </div>
