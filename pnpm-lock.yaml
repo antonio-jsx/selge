@@ -152,6 +152,9 @@ importers:
       '@types/pg':
         specifier: 8.15.6
         version: 8.15.6
+      dotenv:
+        specifier: 17.2.3
+        version: 17.2.3
       drizzle-kit:
         specifier: 0.31.6
         version: 0.31.6
@@ -1929,6 +1932,10 @@ packages:
 
   dot-case@2.1.1:
     resolution: {integrity: sha512-HnM6ZlFqcajLsyudHq7LeeLDr2rFAVYtDv/hV5qchQEidSck8j9OPUsXY9KwJv/lHMtYlX4DjRQqwFYa+0r8Ug==}
+
+  dotenv@17.2.3:
+    resolution: {integrity: sha512-JVUnt+DUIzu87TABbhPmNfVdBDt18BLOWjMUFJMSi/Qqg7NTYtabbvSNJGOJ7afbRuv9D/lngizHtP7QyLQ+9w==}
+    engines: {node: '>=12'}
 
   drizzle-kit@0.31.6:
     resolution: {integrity: sha512-/B4e/4pwnx25QwD5xXgdpo1S+077a2VZdosXbItE/oNmUgQwZydGDz9qJYmnQl/b+5IX0rLfwRhrPnroGtrg8Q==}
@@ -4632,6 +4639,8 @@ snapshots:
   dot-case@2.1.1:
     dependencies:
       no-case: 2.3.2
+
+  dotenv@17.2.3: {}
 
   drizzle-kit@0.31.6:
     dependencies:

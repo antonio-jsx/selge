@@ -1,5 +1,6 @@
 {
   "$schema": "https://turbo.build/schema.json",
+  "globalDependencies": ["**/.env"],
   "ui": "tui",
   "tasks": {
     "build": {
@@ -21,6 +22,9 @@
       "outputs": []
     },
     "db:migrate": {
+      "outputs": []
+    },
+    "db:seed": {
       "outputs": []
     }
   }
