@@ -1,6 +1,6 @@
 'use client';
 
-import { userSchema } from '@/app/(login)/types';
+import { userSchema } from '@/app/(login)/schema';
 import { signIn } from '@bakan/auth/client';
 import { Button } from '@bakan/ui/components/button';
 import { FieldGroup } from '@bakan/ui/components/field';
