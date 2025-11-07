@@ -1,5 +1,5 @@
-import { SettingsBanner } from '@/app/(admin)/_components/settings-banner';
-import { SettingsPage } from '@/app/(admin)/_components/settings-page';
+import { SettingsBanner } from '@/app/(admin)/dashboard/settings/_components/settings-banner';
+import { SettingsPage } from '@/app/(admin)/dashboard/settings/_components/settings-page';
 import {
   Tabs,
   TabsContent,
