@@ -5,12 +5,15 @@ import {
   settingSchema,
 } from '@/app/(admin)/dashboard/settings/schema';
 import Card from '@/components/card';
+import { updateSettings } from '@/server/mutation/update-settings';
 import { Button } from '@bakan/ui/components/button';
 import { FormField } from '@bakan/ui/components/form-field';
 import { Input } from '@bakan/ui/components/input';
+import { Spinner } from '@bakan/ui/components/spinner';
 import { Textarea } from '@bakan/ui/components/textarea';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { SaveIcon } from 'lucide-react';
+import { useAction } from 'next-safe-action/hooks';
 import { useForm } from 'react-hook-form';
 
 export function SettingsPage() {
@@ -22,8 +25,10 @@ export function SettingsPage() {
     },
   });
 
+  const { executeAsync, isPending } = useAction(updateSettings);
+
   const onSubmit = form.handleSubmit(async (data: Settings) => {
-    console.log(data);
+    await executeAsync(data);
   });
 
   return (
@@ -42,7 +47,7 @@ export function SettingsPage() {
           render={(field) => <Textarea {...field} />}
         />
         <Button type="submit">
-          <SaveIcon /> Save
+          {isPending ? <Spinner /> : <SaveIcon />} Save
         </Button>
       </form>
     </Card>

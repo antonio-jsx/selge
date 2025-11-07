@@ -4,7 +4,7 @@ export default function Settings() {
   return (
     <>
       <h1 className="mb-4 font-bold text-2xl">Settings</h1>
-      <section>
+      <section className="grid grid-cols-2">
         <SettingsPage />
       </section>
     </>
