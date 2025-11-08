@@ -1,8 +1,6 @@
 import { integer, json, pgTable, text, varchar } from 'drizzle-orm/pg-core';
 
 export interface Settings {
-  title: string;
-  description: string;
   banner?: {
     title: string;
     subtitle: string;

@@ -15,7 +15,7 @@ export default function Settings() {
         <Tabs defaultValue="page">
           <TabsList>
             <TabsTrigger value="page">Settings Page</TabsTrigger>
-            <TabsTrigger value="hero">Hero Banner</TabsTrigger>
+            <TabsTrigger value="hero">Settings Banner</TabsTrigger>
           </TabsList>
           <TabsContent value="page">
             <SettingsPage />
