@@ -1,5 +1,6 @@
 import { SettingsBanner } from '@/app/(admin)/dashboard/settings/_components/settings-banner';
 import { SettingsPage } from '@/app/(admin)/dashboard/settings/_components/settings-page';
+import { getSettings } from '@/server/query/settings';
 import {
   Tabs,
   TabsContent,
@@ -7,7 +8,13 @@ import {
   TabsTrigger,
 } from '@bakan/ui/components/tabs';
 
-export default function Settings() {
+export default async function Settings() {
+  const settings = await getSettings();
+
+  if (!settings) return null;
+
+  const { title, description, metaData } = settings;
+
   return (
     <>
       <h1 className="mb-4 font-bold text-2xl">Settings</h1>
@@ -18,10 +25,18 @@ export default function Settings() {
             <TabsTrigger value="hero">Settings Banner</TabsTrigger>
           </TabsList>
           <TabsContent value="page">
-            <SettingsPage />
+            <SettingsPage
+              title={settings.title}
+              description={settings.description}
+            />
           </TabsContent>
           <TabsContent value="hero">
-            <SettingsBanner />
+            <SettingsBanner
+              title={metaData?.banner?.title}
+              subtitle={metaData?.banner?.subtitle}
+              btnTitle={metaData?.banner?.button.title}
+              btnUrl={metaData?.banner?.button.link}
+            />
           </TabsContent>
         </Tabs>
       </section>

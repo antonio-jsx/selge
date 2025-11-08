@@ -14,14 +14,21 @@ import { SaveIcon } from 'lucide-react';
 import { useAction } from 'next-safe-action/hooks';
 import { useForm } from 'react-hook-form';
 
-export function SettingsBanner() {
+interface Banner {
+  title?: string;
+  subtitle?: string;
+  btnTitle?: string;
+  btnUrl?: string;
+}
+
+export function SettingsBanner({ title, subtitle, btnTitle, btnUrl }: Banner) {
   const form = useForm({
     resolver: zodResolver(bannerSchema),
     defaultValues: {
-      title: '',
-      subtitle: '',
-      btnTitle: '',
-      btnUrl: '',
+      title: title ?? '',
+      subtitle: subtitle ?? '',
+      btnTitle: btnTitle ?? '',
+      btnUrl: btnUrl ?? '',
     },
   });
 
@@ -33,7 +40,7 @@ export function SettingsBanner() {
 
   return (
     <form
-      className="mt-8 grid grid-cols-[330px_1fr] items-start gap-8"
+      className="grid grid-cols-[330px_1fr] items-start gap-8"
       onSubmit={onSubmit}
     >
       <div>

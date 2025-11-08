@@ -16,12 +16,12 @@ import { SaveIcon } from 'lucide-react';
 import { useAction } from 'next-safe-action/hooks';
 import { useForm } from 'react-hook-form';
 
-export function SettingsPage() {
+export function SettingsPage({ title, description }: Settings) {
   const form = useForm({
     resolver: zodResolver(settingSchema),
     defaultValues: {
-      title: '',
-      description: '',
+      title,
+      description,
     },
   });
 

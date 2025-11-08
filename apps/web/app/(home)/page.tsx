@@ -1,3 +1,4 @@
+import { Banner } from '@/app/(home)/_components/banner';
 import { getSettings } from '@/server/query/settings';
 import type { Metadata } from 'next';
 
@@ -8,5 +9,12 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default function Home() {
-  return <div className="container mx-auto">Welcome</div>;
+  return (
+    <>
+      <section className="container mx-auto">
+        <Banner />
+      </section>
+      <section className="container mx-auto">Welcome</section>
+    </>
+  );
 }

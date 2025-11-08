@@ -8,11 +8,11 @@ export function BannerPreview({ control }: { control: Control<Banner> }) {
   });
 
   return (
-    <div className="relative flex h-full flex-col justify-center px-6 text-white">
+    <div className="relative flex h-full flex-col justify-center px-6">
       <div className="max-w-xl space-y-4">
         <h1 className="text-balance font-bold text-6xl">{watch.title}</h1>
         <p className="text-pretty text-2xl">{watch.subtitle}</p>
-        <Button>{watch.btnTitle}</Button>
+        <Button type="button">{watch.btnTitle}</Button>
       </div>
     </div>
   );

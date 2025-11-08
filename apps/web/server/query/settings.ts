@@ -7,9 +7,7 @@ export async function getSettings() {
   'use cache';
   cacheTag('settings');
 
-  const settings = await db.query.settings.findFirst({
-    columns: { title: true, description: true },
-  });
+  const settings = await db.query.settings.findFirst();
 
   return settings;
 }
