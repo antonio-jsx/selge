@@ -23,7 +23,7 @@ export function AppSidebar() {
   return (
     <Sidebar>
       <SidebarHeader>
-        <Logo className="size-7 fill-black dark:fill-white" />
+        <Logo className="size-5 fill-black dark:fill-white" />
       </SidebarHeader>
       <SidebarContent>
         <SidebarGroup>
