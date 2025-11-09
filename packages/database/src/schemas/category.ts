@@ -1,3 +1,5 @@
+import { products } from './products';
+import { relations } from 'drizzle-orm';
 import { integer, pgTable, timestamp, varchar } from 'drizzle-orm/pg-core';
 
 export const category = pgTable('category', {
@@ -5,3 +7,7 @@ export const category = pgTable('category', {
   name: varchar({ length: 150 }).notNull(),
   createdAt: timestamp('created_at').defaultNow().notNull(),
 });
+
+export const categoryRelations = relations(category, ({ many }) => ({
+  products: many(products),
+}));
