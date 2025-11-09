@@ -7,6 +7,7 @@ import {
   FileTextIcon,
   LayoutDashboardIcon,
   SettingsIcon,
+  TagsIcon,
 } from 'lucide-react';
 
 const dashboard: Menu = {
@@ -17,6 +18,7 @@ const dashboard: Menu = {
 
 const adminMenu: Menu[] = [
   dashboard,
+  { title: 'Category', url: '/dashboard/category', icon: TagsIcon },
   { title: 'Products', url: '/dashboard/products', icon: BoxIcon },
   { title: 'Orders', url: '/dashboard/orders', icon: FileTextIcon },
   { title: 'Settings', url: '/dashboard/settings', icon: SettingsIcon },
