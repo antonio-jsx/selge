@@ -12,3 +12,14 @@ export function getInitials(name: string): string {
   const second = words[1]?.[0] ?? '';
   return (first + second).toUpperCase();
 }
+
+export function slugify(str: string): string {
+  return str
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9\s-]/g, '')
+    .trim()
+    .replace(/\s+/g, '-')
+    .replace(/-+/g, '-');
+}
