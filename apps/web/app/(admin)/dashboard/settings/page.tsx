@@ -7,6 +7,11 @@ import {
   TabsList,
   TabsTrigger,
 } from '@bakan/ui/components/tabs';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Settings',
+};
 
 export default async function Settings() {
   const settings = await getSettings();
@@ -25,10 +30,7 @@ export default async function Settings() {
             <TabsTrigger value="hero">Settings Banner</TabsTrigger>
           </TabsList>
           <TabsContent value="page">
-            <SettingsPage
-              title={settings.title}
-              description={settings.description}
-            />
+            <SettingsPage title={title} description={description} />
           </TabsContent>
           <TabsContent value="hero">
             <SettingsBanner

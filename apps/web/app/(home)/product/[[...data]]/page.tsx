@@ -1,26 +1,46 @@
 import { productParamsSchema } from '@/app/(home)/product/[[...data]]/schema';
 import { getProductById } from '@/server/query/products';
 import { Separator } from '@bakan/ui/components/separator';
+import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
+import { cache } from 'react';
 
-export default async function Product({
-  params,
-}: {
-  params: Promise<{ data: string[] }>;
-}) {
+type Params = Promise<{ data: string[] }>;
+type Props = {
+  params: Params;
+};
+
+const getValidatedProduct = cache(async (params: Params) => {
   const { data } = await params;
-
   const parsed = productParamsSchema.safeParse(data);
+
   if (!parsed.success) {
-    notFound();
+    return null;
   }
 
   const { id, slug } = parsed.data;
-  const product = await getProductById(id, slug).catch(() => notFound());
 
-  if (!product) {
-    notFound();
+  try {
+    return await getProductById(id, slug);
+  } catch {
+    return null;
   }
+});
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const product = await getValidatedProduct(params);
+  if (!product) return {};
+
+  return {
+    title: product.name,
+    description: product.shortDescription,
+  };
+}
+
+export default async function Product({ params }: Props) {
+  const product = await getValidatedProduct(params);
+
+  if (!product) notFound();
 
   return (
     <section className="mx-auto max-w-6xl">
@@ -28,10 +48,9 @@ export default async function Product({
         <div>
           <div className="grid items-start gap-4 lg:grid-cols-[90px_1fr]">
             <div className="flex flex-col gap-4">
-              <div className="h-[90px] w-full bg-muted" />
-              <div className="h-[90px] w-full bg-muted" />
-              <div className="h-[90px] w-full bg-muted" />
-              <div className="h-[90px] w-full bg-muted" />
+              {Array.from({ length: 4 }).map((_, i) => (
+                <div key={i} className="h-[90px] w-full bg-muted" />
+              ))}
             </div>
             <div className="h-full w-full bg-muted" />
           </div>
