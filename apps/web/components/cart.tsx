@@ -1,17 +1,54 @@
+'use client';
+
+import { ItemsCart } from '@/components/items-cart';
+import { useShopping } from '@/store/shopping';
 import { Badge } from '@bakan/ui/components/badge';
 import { Button } from '@bakan/ui/components/button';
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from '@bakan/ui/components/sheet';
 import { ShoppingCartIcon } from 'lucide-react';
 
 export function Cart() {
+  const totalItems = useShopping((state) =>
+    state.cart.reduce((sum, item) => sum + item.quantity, 0)
+  );
+
+  const totalPrice = useShopping((state) =>
+    state.cart.reduce((sum, item) => sum + item.price * item.quantity, 0)
+  );
+
   return (
-    <Button className="relative" variant="ghost" aria-label="Shoping cart">
-      <ShoppingCartIcon className="size-6" />
-      <Badge
-        className="-top-2 -translate-x-1/2 absolute left-full min-w-5 px-1"
-        variant="secondary"
-      >
-        9
-      </Badge>
-    </Button>
+    <Sheet>
+      <SheetTrigger asChild>
+        <Button className="relative" variant="ghost" aria-label="Shopping cart">
+          <ShoppingCartIcon className="size-5" />
+          <Badge
+            className="-top-2 -translate-x-1/2 absolute left-full min-w-5 px-1"
+            variant="secondary"
+          >
+            {totalItems}
+          </Badge>
+        </Button>
+      </SheetTrigger>
+
+      <SheetContent>
+        <SheetHeader>
+          <SheetTitle>Shopping Cart ({totalItems})</SheetTitle>
+        </SheetHeader>
+
+        <div className="px-4">
+          <ItemsCart />
+
+          <div className="mt-4 text-right font-medium">
+            Total: <span>{totalPrice}</span>
+          </div>
+        </div>
+      </SheetContent>
+    </Sheet>
   );
 }

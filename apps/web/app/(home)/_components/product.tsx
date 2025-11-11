@@ -1,3 +1,4 @@
+import { AddToCart } from '@/components/add-to-cart';
 import { slugify } from '@/lib/utils';
 import type { SelectProduct } from '@bakan/database/schemas/products';
 import {
@@ -25,6 +26,7 @@ export function Product({ item }: { item: SelectProduct }) {
           <ItemTitle>{item.name}</ItemTitle>
         </Link>
         <ItemDescription>${item.price}</ItemDescription>
+        <AddToCart product={item} />
       </ItemContent>
     </Item>
   );

@@ -1,4 +1,5 @@
 import { productParamsSchema } from '@/app/(home)/product/[[...data]]/schema';
+import { AddToCart } from '@/components/add-to-cart';
 import { getProductById } from '@/server/query/products';
 import { Separator } from '@bakan/ui/components/separator';
 import type { Metadata } from 'next';
@@ -70,6 +71,8 @@ export default async function Product({ params }: Props) {
         <div className="sticky top-18 rounded-lg border p-6">
           <h1 className="mb-6 font-bold text-xl">{product.name}</h1>
           <h3 className="mb-4 font-bold text-3xl">${product.price}</h3>
+
+          <AddToCart product={product} />
 
           <Separator className="my-6 w-full" orientation="horizontal" />
         </div>
