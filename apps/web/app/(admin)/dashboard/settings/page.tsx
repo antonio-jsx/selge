@@ -1,6 +1,6 @@
 import { SettingsBanner } from '@/app/(admin)/dashboard/settings/_components/settings-banner';
 import { SettingsPage } from '@/app/(admin)/dashboard/settings/_components/settings-page';
-import { getSettings } from '@/server/query/settings';
+import { getHeroSettings, getHomeSettings } from '@/server/query/settings';
 import {
   Tabs,
   TabsContent,
@@ -14,11 +14,17 @@ export const metadata: Metadata = {
 };
 
 export default async function Settings() {
-  const settings = await getSettings();
+  const [home, hero] = await Promise.all([
+    getHomeSettings(),
+    getHeroSettings(),
+  ]);
 
-  if (!settings) return null;
-
-  const { title, description, metaData } = settings;
+  const safeHome = home ?? { title: '', description: '' };
+  const safeHero = hero ?? {
+    title: '',
+    description: '',
+    metaData: { btnTitle: '', btnUrl: '' },
+  };
 
   return (
     <>
@@ -30,14 +36,19 @@ export default async function Settings() {
             <TabsTrigger value="hero">Settings Banner</TabsTrigger>
           </TabsList>
           <TabsContent value="page">
-            <SettingsPage title={title} description={description} />
+            <SettingsPage
+              title={safeHome.title}
+              description={safeHome.description}
+            />
           </TabsContent>
           <TabsContent value="hero">
             <SettingsBanner
-              title={metaData?.banner?.title}
-              subtitle={metaData?.banner?.subtitle}
-              btnTitle={metaData?.banner?.button.title}
-              btnUrl={metaData?.banner?.button.link}
+              metadata={{
+                title: safeHero.title ?? '',
+                description: safeHero.description ?? '',
+                btnTitle: safeHero.metaData.btnTitle ?? '',
+                btnUrl: safeHero.metaData.btnUrl ?? '',
+              }}
             />
           </TabsContent>
         </Tabs>

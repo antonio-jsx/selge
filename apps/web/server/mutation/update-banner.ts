@@ -11,18 +11,13 @@ export const updateBanner = actionClient
   .use(isAdminMiddleware)
   .metadata({ name: 'update-banner' })
   .inputSchema(bannerSchema)
-  .action(async ({ parsedInput: data }) => {
-    await db.update(settings).set({
-      metaData: {
-        banner: {
-          title: data.title,
-          subtitle: data.subtitle,
-          button: {
-            title: data.btnTitle,
-            link: data.btnUrl,
-          },
-        },
-      },
-    });
-    updateTag('settings');
+  .action(async ({ parsedInput: { title, description, ...rest } }) => {
+    await db
+      .insert(settings)
+      .values({ section: 'hero', title, description, metaData: rest })
+      .onConflictDoUpdate({
+        target: settings.section,
+        set: { title, description, metaData: rest },
+      });
+    updateTag('hero');
   });

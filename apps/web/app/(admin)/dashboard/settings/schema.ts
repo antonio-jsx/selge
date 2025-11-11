@@ -15,7 +15,7 @@ export const bannerSchema = z.object({
     .string()
     .min(1, 'Title is required')
     .max(50, 'Title must be at most 50 caharacters'),
-  subtitle: z.string().nonempty('Description is required'),
+  description: z.string().nonempty('Description is required'),
   btnTitle: z.string().min(1, 'Title is required'),
   btnUrl: z.url(),
 });

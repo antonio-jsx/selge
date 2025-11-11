@@ -3,7 +3,6 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "build": "email build --dir ../../packages/email/templates",
     "dev": "email dev -p 3001 --dir ../../packages/email/templates",
     "export": "email export --dir ../../packages/email/templates",
     "typecheck": "tsc --noEmit"

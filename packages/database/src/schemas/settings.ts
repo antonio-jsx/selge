@@ -1,19 +1,20 @@
-import { integer, json, pgTable, text, varchar } from 'drizzle-orm/pg-core';
+import {
+  integer,
+  json,
+  pgEnum,
+  pgTable,
+  text,
+  varchar,
+} from 'drizzle-orm/pg-core';
 
-export interface Settings {
-  banner?: {
-    title: string;
-    subtitle: string;
-    button: {
-      title: string;
-      link: string;
-    };
-  };
-}
+export const sectionEnum = pgEnum('section', ['home', 'hero']);
 
 export const settings = pgTable('settings', {
   id: integer().primaryKey().generatedAlwaysAsIdentity(),
+  section: sectionEnum().notNull().unique(),
   title: varchar({ length: 60 }).notNull(),
   description: text().notNull(),
-  metaData: json('meta_data').$type<Settings>(),
+  metaData: json('meta_data'),
 });
+
+export type SelectSettings = typeof settings.$inferSelect;

@@ -1,4 +1,5 @@
 import type { SelectProduct } from '@bakan/database/schemas/products';
+import type { SelectSettings } from '@bakan/database/schemas/settings';
 import type { LucideIcon } from 'lucide-react';
 
 export interface Menu {
@@ -16,4 +17,11 @@ export interface ShoppingStore {
   addToCart: (product: CartItem) => void;
   removeFromCart: (id: number) => void;
   updateQuantity: (id: number, quantity: number) => void;
+}
+
+export interface HeroSettings extends SelectSettings {
+  metaData: {
+    btnTitle: string;
+    btnUrl: string;
+  };
 }

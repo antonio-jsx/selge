@@ -45,7 +45,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         </nav>
       </header>
 
-      <main className="pt-20">{children}</main>
+      <main className="pt-18">{children}</main>
     </>
   );
 }

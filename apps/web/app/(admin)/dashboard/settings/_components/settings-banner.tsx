@@ -1,6 +1,9 @@
 'use client';
 
-import { bannerSchema } from '@/app/(admin)/dashboard/settings/schema';
+import {
+  type Banner,
+  bannerSchema,
+} from '@/app/(admin)/dashboard/settings/schema';
 import Card from '@/components/card';
 import { updateBanner } from '@/server/mutation/update-banner';
 import { BannerPreview } from './banner-preview';
@@ -14,19 +17,16 @@ import { SaveIcon } from 'lucide-react';
 import { useAction } from 'next-safe-action/hooks';
 import { useForm } from 'react-hook-form';
 
-interface Banner {
-  title?: string;
-  subtitle?: string;
-  btnTitle?: string;
-  btnUrl?: string;
-}
-
-export function SettingsBanner({ title, subtitle, btnTitle, btnUrl }: Banner) {
+export function SettingsBanner({
+  metadata: { title, description, btnTitle, btnUrl },
+}: {
+  metadata: Banner;
+}) {
   const form = useForm({
     resolver: zodResolver(bannerSchema),
     defaultValues: {
-      title: title ?? '',
-      subtitle: subtitle ?? '',
+      title,
+      description,
       btnTitle: btnTitle ?? '',
       btnUrl: btnUrl ?? '',
     },
@@ -57,7 +57,7 @@ export function SettingsBanner({ title, subtitle, btnTitle, btnUrl }: Banner) {
             />
             <FormField
               control={form.control}
-              name="subtitle"
+              name="description"
               label="Description"
               render={(field) => <Textarea {...field} />}
             />

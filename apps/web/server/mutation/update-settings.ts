@@ -11,7 +11,13 @@ export const updateSettings = actionClient
   .use(isAdminMiddleware)
   .metadata({ name: 'update-settings' })
   .inputSchema(settingSchema)
-  .action(async ({ parsedInput: { title, description } }) => {
-    await db.update(settings).set({ title, description });
-    updateTag('settings');
+  .action(async ({ parsedInput: data }) => {
+    await db
+      .insert(settings)
+      .values({ ...data, section: 'home' })
+      .onConflictDoUpdate({
+        target: settings.section,
+        set: data,
+      });
+    updateTag('home');
   });
