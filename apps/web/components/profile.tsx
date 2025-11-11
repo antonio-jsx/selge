@@ -17,7 +17,7 @@ import {
   DropdownMenuTrigger,
 } from '@bakan/ui/components/dropdown-menu';
 import { Skeleton } from '@bakan/ui/components/skeleton';
-import { LogOutIcon } from 'lucide-react';
+import { LogOutIcon, UserIcon } from 'lucide-react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
@@ -48,7 +48,7 @@ export function Profile() {
   };
 
   return (
-    <DropdownMenu>
+    <DropdownMenu modal={false}>
       <DropdownMenuTrigger>
         <Avatar>
           <AvatarImage src={data.user.image || ''} />
@@ -67,6 +67,11 @@ export function Profile() {
           </div>
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
+        <DropdownMenuItem asChild>
+          <Link href="/dashboard">
+            <UserIcon /> My account
+          </Link>
+        </DropdownMenuItem>
         <DropdownMenuItem onSelect={logout}>
           <LogOutIcon /> Logout
         </DropdownMenuItem>
