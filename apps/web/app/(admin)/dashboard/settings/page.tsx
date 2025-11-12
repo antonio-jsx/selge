@@ -1,6 +1,8 @@
 import { SettingsBanner } from '@/app/(admin)/dashboard/settings/_components/settings-banner';
 import { SettingsPage } from '@/app/(admin)/dashboard/settings/_components/settings-page';
-import { getHeroSettings, getHomeSettings } from '@/server/query/settings';
+import type { HeroSettings } from '@/lib/types';
+import { getSettings } from '@/server/query/settings';
+import type { SelectSettings } from '@bakan/database/schemas/settings';
 import {
   Tabs,
   TabsContent,
@@ -14,17 +16,15 @@ export const metadata: Metadata = {
 };
 
 export default async function Settings() {
-  const [home, hero] = await Promise.all([
-    getHomeSettings(),
-    getHeroSettings(),
-  ]);
+  const settings = await getSettings();
 
-  const safeHome = home ?? { title: '', description: '' };
-  const safeHero = hero ?? {
-    title: '',
-    description: '',
-    metaData: { btnTitle: '', btnUrl: '' },
-  };
+  const safeHome = settings.find((item) => item.section === 'home') as
+    | SelectSettings
+    | undefined;
+
+  const safeHero = settings.find((item) => item.section === 'hero') as
+    | HeroSettings
+    | undefined;
 
   return (
     <>
@@ -32,22 +32,22 @@ export default async function Settings() {
       <section>
         <Tabs defaultValue="page">
           <TabsList>
-            <TabsTrigger value="page">Settings Page</TabsTrigger>
-            <TabsTrigger value="hero">Settings Banner</TabsTrigger>
+            <TabsTrigger value="page">General</TabsTrigger>
+            <TabsTrigger value="hero">Hero banner</TabsTrigger>
           </TabsList>
           <TabsContent value="page">
             <SettingsPage
-              title={safeHome.title}
-              description={safeHome.description}
+              title={safeHome?.title ?? ''}
+              description={safeHome?.description ?? ''}
             />
           </TabsContent>
           <TabsContent value="hero">
             <SettingsBanner
               metadata={{
-                title: safeHero.title ?? '',
-                description: safeHero.description ?? '',
-                btnTitle: safeHero.metaData.btnTitle ?? '',
-                btnUrl: safeHero.metaData.btnUrl ?? '',
+                title: safeHero?.title ?? '',
+                description: safeHero?.description ?? '',
+                btnTitle: safeHero?.metaData.btnTitle ?? '',
+                btnUrl: safeHero?.metaData.btnUrl ?? '',
               }}
             />
           </TabsContent>

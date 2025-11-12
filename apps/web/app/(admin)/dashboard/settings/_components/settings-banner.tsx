@@ -27,8 +27,8 @@ export function SettingsBanner({
     defaultValues: {
       title,
       description,
-      btnTitle: btnTitle ?? '',
-      btnUrl: btnUrl ?? '',
+      btnTitle,
+      btnUrl,
     },
   });
 

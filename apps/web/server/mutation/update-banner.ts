@@ -19,5 +19,5 @@ export const updateBanner = actionClient
         target: settings.section,
         set: { title, description, metaData: rest },
       });
-    updateTag('hero');
+    updateTag('settings');
   });

@@ -14,7 +14,7 @@ export const settings = pgTable('settings', {
   section: sectionEnum().notNull().unique(),
   title: varchar({ length: 60 }).notNull(),
   description: text().notNull(),
-  metaData: json('meta_data'),
+  metaData: json('meta_data').$type<Record<string, any>>(),
 });
 
 export type SelectSettings = typeof settings.$inferSelect;

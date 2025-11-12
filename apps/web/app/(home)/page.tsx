@@ -1,12 +1,20 @@
 import { Banner } from '@/app/(home)/_components/banner';
 import { FeaturedProducts } from '@/app/(home)/_components/featured-products';
-import { getHomeSettings } from '@/server/query/settings';
+import { getSettings } from '@/server/query/settings';
+import type { SelectSettings } from '@bakan/database/schemas/settings';
 import type { Metadata } from 'next';
 
 export async function generateMetadata(): Promise<Metadata> {
-  const settings = await getHomeSettings();
+  const settings = await getSettings();
 
-  return { title: settings?.title, description: settings?.description };
+  const safeHome = settings.find((item) => item.section === 'home') as
+    | SelectSettings
+    | undefined;
+
+  return {
+    title: safeHome?.title ?? '',
+    description: safeHome?.description ?? '',
+  };
 }
 
 export default function Home() {

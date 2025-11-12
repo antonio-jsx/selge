@@ -19,5 +19,5 @@ export const updateSettings = actionClient
         target: settings.section,
         set: data,
       });
-    updateTag('home');
+    updateTag('settings');
   });

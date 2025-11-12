@@ -1,12 +1,15 @@
-import { getHeroSettings } from '@/server/query/settings';
+import type { HeroSettings } from '@/lib/types';
+import { getSettings } from '@/server/query/settings';
 import { Button } from '@bakan/ui/components/button';
 
 export async function Banner() {
-  const banner = await getHeroSettings();
+  const settings = await getSettings();
 
-  if (!banner) return;
+  const hero = settings.find((item) => item.section === 'hero');
 
-  const { title, description, metaData } = banner;
+  if (!hero) return null;
+
+  const { title, description, metaData } = hero as HeroSettings;
 
   return (
     <div className="relative flex aspect-10/8 flex-col justify-center rounded-lg bg-gray-400 px-6 md:aspect-10/5 lg:aspect-10/3">
