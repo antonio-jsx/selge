@@ -5,11 +5,16 @@ import { signIn } from '@bakan/auth/client';
 import { Button } from '@bakan/ui/components/button';
 import { FieldGroup } from '@bakan/ui/components/field';
 import { FormField } from '@bakan/ui/components/form-field';
-import { Input } from '@bakan/ui/components/input';
+import {
+  InputGroup,
+  InputGroupAddon,
+  InputGroupInput,
+} from '@bakan/ui/components/input-group';
 import { Password } from '@bakan/ui/components/password';
 import { toast } from '@bakan/ui/components/sonner';
 import { Spinner } from '@bakan/ui/components/spinner';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { MailIcon } from 'lucide-react';
 import Link from 'next/link';
 import { useForm } from 'react-hook-form';
 
@@ -39,7 +44,16 @@ export function SignIn() {
           name="email"
           label="Email"
           render={(field) => (
-            <Input type="email" placeholder="Enter your email" {...field} />
+            <InputGroup>
+              <InputGroupInput
+                type="email"
+                placeholder="Enter your email"
+                {...field}
+              />
+              <InputGroupAddon>
+                <MailIcon />
+              </InputGroupAddon>
+            </InputGroup>
           )}
         />
         <FormField
