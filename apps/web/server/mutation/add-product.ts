@@ -13,5 +13,5 @@ export const addProduct = actionClient
   .inputSchema(productSchema)
   .action(async ({ parsedInput: data }) => {
     await db.insert(products).values(data);
-    updateTag('products');
+    updateTag('featured');
   });
