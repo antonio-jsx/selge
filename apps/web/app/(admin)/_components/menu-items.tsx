@@ -1,6 +1,6 @@
 'use client';
 
-import type { Menu } from '@/types';
+import type { Menu } from '@/lib/types';
 import {
   SidebarMenuButton,
   SidebarMenuItem,

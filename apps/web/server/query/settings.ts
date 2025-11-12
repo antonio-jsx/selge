@@ -1,6 +1,6 @@
 import 'server-only';
 
-import type { HeroSettings } from '@/types';
+import type { HeroSettings } from '@/lib/types';
 import { db } from '@bakan/database';
 import type { SelectSettings } from '@bakan/database/schemas/settings';
 import { cacheTag } from 'next/cache';
