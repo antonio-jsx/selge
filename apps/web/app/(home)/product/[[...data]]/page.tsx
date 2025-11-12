@@ -48,12 +48,12 @@ export default async function Product({ params }: Props) {
       <div className="grid items-start gap-8 lg:grid-cols-[1fr_420px]">
         <div>
           <div className="grid items-start gap-4 lg:grid-cols-[90px_1fr]">
-            <div className="flex flex-col gap-4">
+            <div className="flex gap-4 lg:flex-col">
               {Array.from({ length: 4 }).map((_, i) => (
                 <div key={i} className="h-[90px] w-full bg-muted" />
               ))}
             </div>
-            <div className="h-full w-full bg-muted" />
+            <div className="aspect-square h-[420px] w-full bg-muted" />
           </div>
 
           <Separator className="my-6 w-full" orientation="horizontal" />

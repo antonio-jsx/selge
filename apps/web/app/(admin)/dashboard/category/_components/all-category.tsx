@@ -13,7 +13,7 @@ export async function AllCategory() {
   const category = await getCategory();
 
   return (
-    <section className="grid gap-4 lg:grid-cols-4">
+    <section className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
       {category.map((item) => (
         <Item variant="outline" key={item.id}>
           <ItemMedia variant="icon">

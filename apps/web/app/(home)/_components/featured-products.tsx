@@ -11,7 +11,7 @@ export async function FeaturedProducts() {
   const products = await getFeaturedProducts();
 
   return (
-    <ItemGroup className="gap4 grid grid-cols-4">
+    <ItemGroup className="gap4 grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
       {products.map((item) => (
         <Product item={item} key={item.id} />
       ))}
