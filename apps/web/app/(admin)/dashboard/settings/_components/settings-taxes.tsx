@@ -20,7 +20,7 @@ export function SettingsTaxes({
 }: {
   metadata: Taxes;
 }) {
-  const form = useForm({
+  const { control, handleSubmit } = useForm({
     resolver: zodResolver(taxesSchema),
     defaultValues: {
       title,
@@ -31,7 +31,7 @@ export function SettingsTaxes({
 
   const { executeAsync, isPending } = useAction(updateTax);
 
-  const onSubmit = form.handleSubmit(async (data) => {
+  const onSubmit = handleSubmit(async (data) => {
     await executeAsync(data);
   });
 
@@ -42,21 +42,21 @@ export function SettingsTaxes({
     >
       <form className="space-y-4" onSubmit={onSubmit}>
         <FormField
-          control={form.control}
+          control={control}
           name="title"
           label="Tax name"
           render={(field) => <Input {...field} />}
         />
 
         <FormField
-          control={form.control}
+          control={control}
           name="description"
           label="Description"
           render={(field) => <Input {...field} />}
         />
 
         <FormField
-          control={form.control}
+          control={control}
           name="taxValue"
           label="Default tax rate"
           render={(field) => (

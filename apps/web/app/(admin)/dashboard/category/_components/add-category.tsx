@@ -25,7 +25,7 @@ import { useForm } from 'react-hook-form';
 export function AddCategory() {
   const [open, setOpen] = useState<boolean>(false);
 
-  const form = useForm({
+  const { control, handleSubmit, reset } = useForm({
     resolver: zodResolver(categorySchema),
     defaultValues: {
       name: '',
@@ -34,14 +34,18 @@ export function AddCategory() {
 
   const { executeAsync, isPending } = useAction(addCategory);
 
-  const onSubmit = form.handleSubmit(async (data) => {
+  const onSubmit = handleSubmit(async (data) => {
     await executeAsync(data);
-    form.reset();
-    setOpen(false);
+    closeDialog();
   });
 
+  const closeDialog = () => {
+    setOpen((state) => !state);
+    reset();
+  };
+
   return (
-    <Dialog open={open} onOpenChange={setOpen}>
+    <Dialog open={open} onOpenChange={closeDialog}>
       <DialogTrigger asChild>
         <Button>
           <PlusIcon /> Add Category
@@ -57,7 +61,7 @@ export function AddCategory() {
 
         <form className="space-y-4" onSubmit={onSubmit}>
           <FormField
-            control={form.control}
+            control={control}
             name="name"
             label="Category name"
             render={(field) => <Input {...field} />}

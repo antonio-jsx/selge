@@ -22,7 +22,7 @@ export function SettingsBanner({
 }: {
   metadata: Banner;
 }) {
-  const form = useForm({
+  const { control, handleSubmit } = useForm({
     resolver: zodResolver(bannerSchema),
     defaultValues: {
       title,
@@ -34,7 +34,7 @@ export function SettingsBanner({
 
   const { executeAsync, isPending } = useAction(updateBanner);
 
-  const onSubmit = form.handleSubmit(async (data) => {
+  const onSubmit = handleSubmit(async (data) => {
     await executeAsync(data);
   });
 
@@ -50,26 +50,26 @@ export function SettingsBanner({
         >
           <div className="space-y-4">
             <FormField
-              control={form.control}
+              control={control}
               name="title"
               label="Title"
               render={(field) => <Input {...field} />}
             />
             <FormField
-              control={form.control}
+              control={control}
               name="description"
               label="Description"
               render={(field) => <Textarea {...field} />}
             />
 
             <FormField
-              control={form.control}
+              control={control}
               name="btnTitle"
               label="Button text"
               render={(field) => <Input {...field} />}
             />
             <FormField
-              control={form.control}
+              control={control}
               name="btnUrl"
               label="URL"
               render={(field) => <Input {...field} />}
@@ -84,7 +84,7 @@ export function SettingsBanner({
 
       <div className="relative overflow-hidden rounded-lg border">
         <div className="relative h-[300px] w-full">
-          <BannerPreview control={form.control} />
+          <BannerPreview control={control} />
         </div>
       </div>
     </form>

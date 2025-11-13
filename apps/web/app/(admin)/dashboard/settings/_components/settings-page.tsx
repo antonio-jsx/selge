@@ -17,7 +17,7 @@ import { useAction } from 'next-safe-action/hooks';
 import { useForm } from 'react-hook-form';
 
 export function SettingsPage({ title, description }: Settings) {
-  const form = useForm({
+  const { control, handleSubmit } = useForm({
     resolver: zodResolver(settingSchema),
     defaultValues: {
       title,
@@ -27,7 +27,7 @@ export function SettingsPage({ title, description }: Settings) {
 
   const { executeAsync, isPending } = useAction(updateSettings);
 
-  const onSubmit = form.handleSubmit(async (data: Settings) => {
+  const onSubmit = handleSubmit(async (data: Settings) => {
     await executeAsync(data);
   });
 
@@ -35,13 +35,13 @@ export function SettingsPage({ title, description }: Settings) {
     <Card title="Settings Page" description="Customize your homepage settings">
       <form onSubmit={onSubmit} className="space-y-4">
         <FormField
-          control={form.control}
+          control={control}
           name="title"
           label="Title"
           render={(field) => <Input {...field} />}
         />
         <FormField
-          control={form.control}
+          control={control}
           name="description"
           label="Description"
           render={(field) => <Textarea {...field} />}
