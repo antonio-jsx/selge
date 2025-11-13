@@ -2,6 +2,7 @@
 
 import { productSchema } from '@/app/(admin)/dashboard/products/schema';
 import { addProduct } from '@/server/mutation/add-product';
+import type { SelectCategory } from '@bakan/database/schemas/category';
 import { Button } from '@bakan/ui/components/button';
 import { Checkbox } from '@bakan/ui/components/checkbox';
 import {
@@ -22,17 +23,27 @@ import {
   InputGroupText,
   InputGroupTextarea,
 } from '@bakan/ui/components/input-group';
+import {
+  NativeSelect,
+  NativeSelectOption,
+} from '@bakan/ui/components/native-select';
 import { Spinner } from '@bakan/ui/components/spinner';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { PlusIcon } from 'lucide-react';
 import { useAction } from 'next-safe-action/hooks';
-import { useState } from 'react';
+import { use, useState } from 'react';
 import { useForm } from 'react-hook-form';
 
-export function AddProduct() {
+export function AddProduct({
+  categories,
+}: {
+  categories: Promise<SelectCategory[]>;
+}) {
+  const allCategories = use(categories);
+
   const [open, setOpen] = useState<boolean>(false);
 
-  const form = useForm({
+  const { control, handleSubmit, reset } = useForm({
     resolver: zodResolver(productSchema),
     defaultValues: {
       name: '',
@@ -50,14 +61,19 @@ export function AddProduct() {
 
   const { executeAsync, isPending } = useAction(addProduct);
 
-  const onSubmit = form.handleSubmit(async (data) => {
+  const onSubmit = handleSubmit(async (data) => {
     await executeAsync(data);
-    form.reset();
+    reset();
     setOpen(false);
   });
 
+  const closeDialog = () => {
+    setOpen((state) => !state);
+    reset();
+  };
+
   return (
-    <Dialog open={open} onOpenChange={setOpen}>
+    <Dialog open={open} onOpenChange={closeDialog}>
       <DialogTrigger asChild>
         <Button>
           <PlusIcon /> Add Product
@@ -72,15 +88,38 @@ export function AddProduct() {
         </DialogHeader>
 
         <form className="space-y-4" onSubmit={onSubmit}>
+          <FormField
+            control={control}
+            name="categoryId"
+            label="Category"
+            render={(field) => (
+              <NativeSelect
+                {...field}
+                onChange={(e) => {
+                  const value = e.target.value;
+                  field.onChange(value === '' ? undefined : Number(value));
+                }}
+              >
+                <NativeSelectOption value="">
+                  Select category
+                </NativeSelectOption>
+                {allCategories.map((item) => (
+                  <NativeSelectOption value={item.id} key={item.id}>
+                    {item.name}
+                  </NativeSelectOption>
+                ))}
+              </NativeSelect>
+            )}
+          />
           <div className="flex items-start gap-4">
             <FormField
-              control={form.control}
+              control={control}
               name="name"
               label="Product name"
               render={(field) => <Input {...field} />}
             />
             <FormField
-              control={form.control}
+              control={control}
               name="sku"
               label="Product SKU"
               render={(field) => <Input {...field} />}
@@ -88,14 +127,14 @@ export function AddProduct() {
           </div>
 
           <FormField
-            control={form.control}
+            control={control}
             name="shortDescription"
             label="Short description"
             render={(field) => <Input {...field} />}
           />
 
           <FormField
-            control={form.control}
+            control={control}
             name="description"
             label="Description"
             render={(field) => (
@@ -115,7 +154,7 @@ export function AddProduct() {
 
           <div className="flex items-start gap-4">
             <FormField
-              control={form.control}
+              control={control}
               name="price"
               label="Price"
               render={(field) => (
@@ -132,7 +171,7 @@ export function AddProduct() {
             />
 
             <FormField
-              control={form.control}
+              control={control}
               name="costPrice"
               label="Price cost"
               render={(field) => (
@@ -149,7 +188,7 @@ export function AddProduct() {
             />
 
             <FormField
-              control={form.control}
+              control={control}
               name="stock"
               label="Stock"
               render={(field) => (
@@ -168,7 +207,7 @@ export function AddProduct() {
 
           <div className="flex items-center gap-4">
             <FormField
-              control={form.control}
+              control={control}
               name="isActive"
               render={(field) => (
                 <label className="flex items-center gap-2" htmlFor="active">
@@ -186,7 +225,7 @@ export function AddProduct() {
             />
 
             <FormField
-              control={form.control}
+              control={control}
               name="isFeatured"
               render={(field) => (
                 <label className="flex items-center gap-2" htmlFor="featured">

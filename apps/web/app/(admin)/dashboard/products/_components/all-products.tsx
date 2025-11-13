@@ -24,6 +24,9 @@ export async function AllProducts() {
     <TableRow key={item.id}>
       <TableCell>{item.name}</TableCell>
       <TableCell>{item.sku}</TableCell>
+      <TableCell>
+        {item.category ? item.category.name : 'Uncategorized'}
+      </TableCell>
       <TableCell>{item.price}</TableCell>
       <TableCell>{item.stock}</TableCell>
       <TableCell>{item.isActive ? 'Active' : 'Disabled'}</TableCell>
