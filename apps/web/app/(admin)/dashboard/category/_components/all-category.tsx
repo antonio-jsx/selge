@@ -1,3 +1,4 @@
+import { EmptyState } from '@/components/empty-state';
 import { getCategory } from '@/server/query/category';
 import {
   Item,
@@ -11,6 +12,16 @@ import { TagsIcon } from 'lucide-react';
 
 export async function AllCategory() {
   const category = await getCategory();
+
+  if (category.length <= 0) {
+    return (
+      <EmptyState
+        Icon={TagsIcon}
+        title="There are no categories yet"
+        description="Create categories to keep your products organized and make it easier for customers to find what they’re looking for."
+      />
+    );
+  }
 
   return (
     <section className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">

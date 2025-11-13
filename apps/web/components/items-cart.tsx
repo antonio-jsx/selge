@@ -1,7 +1,7 @@
 'use client';
 
-import { EmptyCart } from '@/components/empty-cart';
 import { useShopping } from '@/store/shopping';
+import { EmptyState } from './empty-state';
 import { Button } from '@bakan/ui/components/button';
 import {
   Item,
@@ -11,13 +11,19 @@ import {
   ItemMedia,
   ItemTitle,
 } from '@bakan/ui/components/item';
-import { TrashIcon } from 'lucide-react';
+import { ShoppingCartIcon, TrashIcon } from 'lucide-react';
 
 export function ItemsCart() {
   const { cart, removeFromCart } = useShopping();
 
   if (cart.length <= 0) {
-    return <EmptyCart />;
+    return (
+      <EmptyState
+        Icon={ShoppingCartIcon}
+        title="Your cart is empty"
+        description="Looks like you haven’t added anything yet."
+      />
+    );
   }
 
   return cart.map((item) => (

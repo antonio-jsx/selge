@@ -31,3 +31,9 @@ export interface TaxSettings extends SelectSettings {
     taxValue: number;
   };
 }
+
+export interface EmptyStateProps {
+  Icon: LucideIcon;
+  title: string;
+  description: string;
+}
