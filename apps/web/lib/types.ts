@@ -25,3 +25,9 @@ export interface HeroSettings extends SelectSettings {
     btnUrl: string;
   };
 }
+
+export interface TaxSettings extends SelectSettings {
+  metaData: {
+    taxValue: number;
+  };
+}
