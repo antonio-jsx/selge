@@ -21,7 +21,20 @@ import { LogOutIcon, UserIcon } from 'lucide-react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
-export function Profile() {
+function ViewName({ name, email }: { name: string; email: string }) {
+  return (
+    <div className="flex min-w-0 flex-col">
+      <span className="truncate font-medium text-foreground text-sm">
+        {name}
+      </span>
+      <span className="truncate font-normal text-muted-foreground text-xs">
+        {email}
+      </span>
+    </div>
+  );
+}
+
+export function Profile({ display = false }: { display?: boolean }) {
   const { data, error, isPending } = useSession();
   const router = useRouter();
 
@@ -49,22 +62,16 @@ export function Profile() {
 
   return (
     <DropdownMenu modal={false}>
-      <DropdownMenuTrigger>
+      <DropdownMenuTrigger className="flex items-center justify-start gap-2 text-left">
         <Avatar>
           <AvatarImage src={data.user.image || ''} />
           <AvatarFallback>{getInitials(data.user.name)}</AvatarFallback>
         </Avatar>
+        {display && <ViewName name={data.user.name} email={data.user.email} />}
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
         <DropdownMenuLabel>
-          <div className="flex min-w-0 flex-col">
-            <span className="truncate font-medium text-foreground text-sm">
-              {data.user.name}
-            </span>
-            <span className="truncate font-normal text-muted-foreground text-xs">
-              {data.user.email}
-            </span>
-          </div>
+          <ViewName name={data.user.name} email={data.user.email} />
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuItem asChild>

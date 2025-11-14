@@ -1,4 +1,5 @@
 import { Logo } from '@/components/logo';
+import { Profile } from '@/components/profile';
 import { requireAdmin } from '@/lib/user-auth';
 import { AdminMenu } from './admin-menu';
 import { MenuLoader } from './menu-loader';
@@ -36,7 +37,9 @@ export function AppSidebar() {
           </SidebarGroupContent>
         </SidebarGroup>
       </SidebarContent>
-      <SidebarFooter />
+      <SidebarFooter>
+        <Profile display />
+      </SidebarFooter>
     </Sidebar>
   );
 }

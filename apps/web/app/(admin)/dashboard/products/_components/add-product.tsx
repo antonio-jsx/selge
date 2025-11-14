@@ -79,7 +79,7 @@ export function AddProduct({
           <PlusIcon /> Add Product
         </Button>
       </DialogTrigger>
-      <DialogContent className="min-w-2xl">
+      <DialogContent className="max-h-[90vh] min-w-2xl overflow-y-auto">
         <DialogHeader>
           <DialogTitle>New Product</DialogTitle>
           <DialogDescription>
