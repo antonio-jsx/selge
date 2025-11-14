@@ -14,4 +14,5 @@ export const addProduct = actionClient
   .action(async ({ parsedInput: data }) => {
     await db.insert(products).values(data);
     updateTag('featured');
+    updateTag('category');
   });

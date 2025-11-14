@@ -32,7 +32,9 @@ export async function AllCategory() {
           </ItemMedia>
           <ItemContent>
             <ItemTitle>{item.name}</ItemTitle>
-            <ItemDescription>total</ItemDescription>
+            <ItemDescription>
+              {item.productsTotal} Product{item.productsTotal > 1 && 's'}
+            </ItemDescription>
           </ItemContent>
           <ItemActions />
         </Item>
