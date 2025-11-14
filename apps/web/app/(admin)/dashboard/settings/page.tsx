@@ -41,7 +41,7 @@ export default async function Settings() {
             <TabsTrigger value="hero">Hero banner</TabsTrigger>
             <TabsTrigger value="taxes">Taxes</TabsTrigger>
           </TabsList>
-          <TabsContent value="page">
+          <TabsContent className="lg:max-w-lg" value="page">
             <SettingsPage
               title={safeHome?.title ?? ''}
               description={safeHome?.description ?? ''}
@@ -57,7 +57,7 @@ export default async function Settings() {
               }}
             />
           </TabsContent>
-          <TabsContent value="taxes">
+          <TabsContent className="lg:max-w-lg" value="taxes">
             <SettingsTaxes
               metadata={{
                 title: safeTax?.title ?? '',
