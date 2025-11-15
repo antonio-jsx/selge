@@ -1,3 +1,4 @@
+import { ButtonTrash } from '@/components/button-trash';
 import { EmptyState } from '@/components/empty-state';
 import { getProducts } from '@/server/query/products';
 import { TableCell, TableRow } from '@bakan/ui/components/table';
@@ -9,7 +10,7 @@ export async function AllProducts() {
   if (products.length <= 0) {
     return (
       <TableRow>
-        <TableCell colSpan={5}>
+        <TableCell colSpan={7}>
           <EmptyState
             Icon={BoxIcon}
             title="There are no products"
@@ -30,6 +31,9 @@ export async function AllProducts() {
       <TableCell>{item.price}</TableCell>
       <TableCell>{item.stock}</TableCell>
       <TableCell>{item.isActive ? 'Active' : 'Disabled'}</TableCell>
+      <TableCell>
+        <ButtonTrash id={item.id} title={item.name} section="products" />
+      </TableCell>
     </TableRow>
   ));
 }

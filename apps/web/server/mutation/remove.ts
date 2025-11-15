@@ -4,6 +4,7 @@ import { actionClient } from '@/lib/safe-action';
 import { isAdminMiddleware } from '@/lib/user-auth';
 import { db, eq } from '@bakan/database';
 import { category } from '@bakan/database/schemas/category';
+import { products } from '@bakan/database/schemas/products';
 import { updateTag } from 'next/cache';
 import z from 'zod';
 
@@ -20,5 +21,11 @@ export const removeAction = actionClient
     if (section === 'category') {
       await db.delete(category).where(eq(category.id, id));
       updateTag(section);
+    }
+
+    if (section === 'products') {
+      await db.delete(products).where(eq(products.id, id));
+      updateTag(section);
+      updateTag('category');
     }
   });
