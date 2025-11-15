@@ -1,2 +1,2 @@
 export { db } from './database';
-export { sql } from 'drizzle-orm';
+export { and, asc, desc, eq, or, sql } from 'drizzle-orm';
