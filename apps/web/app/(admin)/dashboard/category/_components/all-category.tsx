@@ -1,3 +1,4 @@
+import { ButtonTrash } from '@/components/button-trash';
 import { EmptyState } from '@/components/empty-state';
 import { getCategory } from '@/server/query/category';
 import {
@@ -24,7 +25,7 @@ export async function AllCategory() {
   }
 
   return (
-    <section className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+    <section className="grid gap-4 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3">
       {category.map((item) => (
         <Item variant="outline" key={item.id}>
           <ItemMedia variant="icon">
@@ -36,7 +37,9 @@ export async function AllCategory() {
               {item.productsTotal} Product{item.productsTotal > 1 && 's'}
             </ItemDescription>
           </ItemContent>
-          <ItemActions />
+          <ItemActions>
+            <ButtonTrash id={item.id} title={item.name} section="category" />
+          </ItemActions>
         </Item>
       ))}
     </section>
