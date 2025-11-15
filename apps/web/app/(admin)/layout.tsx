@@ -1,4 +1,5 @@
 import { AppSidebar } from '@/app/(admin)/_components/app-sidebar';
+import { Remove } from '@/components/remove';
 import { SidebarInset, SidebarProvider } from '@bakan/ui/components/sidebar';
 
 export default function Layout({ children }: { children: React.ReactNode }) {
@@ -7,6 +8,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <AppSidebar />
       <SidebarInset>
         <main className="mx-auto w-full max-w-6xl md:p-6">{children}</main>
+        <Remove />
       </SidebarInset>
     </SidebarProvider>
   );

@@ -42,3 +42,19 @@ export interface EmptyStateProps {
 export interface ProductsWithCategory extends SelectProduct {
   category: SelectCategory | null;
 }
+
+export type Section = 'category' | 'products';
+
+export type TitleId = {
+  id: number;
+  title: string;
+};
+
+export interface RemoveStore {
+  id: number;
+  section: Section;
+  title: string;
+  modal: boolean;
+  remove: (section: Section, options: TitleId) => void;
+  closeModal: (state: boolean) => void;
+}
