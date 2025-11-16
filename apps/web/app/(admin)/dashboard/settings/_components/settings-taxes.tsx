@@ -1,9 +1,7 @@
 'use client';
 
-import {
-  type Taxes,
-  taxesSchema,
-} from '@/app/(admin)/dashboard/settings/schema';
+import { useSectionSettings } from '@/app/(admin)/dashboard/settings/hooks';
+import { taxesSchema } from '@/app/(admin)/dashboard/settings/schema';
 import Card from '@/components/card';
 import { updateTax } from '@/server/mutation/update-tax';
 import { Button } from '@bakan/ui/components/button';
@@ -15,11 +13,19 @@ import { SaveIcon } from 'lucide-react';
 import { useAction } from 'next-safe-action/hooks';
 import { useForm } from 'react-hook-form';
 
-export function SettingsTaxes({
-  metadata: { title, description, taxValue },
-}: {
-  metadata: Taxes;
-}) {
+export function SettingsTaxes() {
+  const settings = useSectionSettings('taxes', {
+    title: '',
+    description: '',
+    metaData: { taxValue: 0 },
+  });
+
+  const {
+    title,
+    description,
+    metaData: { taxValue },
+  } = settings;
+
   const { control, handleSubmit } = useForm({
     resolver: zodResolver(taxesSchema),
     defaultValues: {

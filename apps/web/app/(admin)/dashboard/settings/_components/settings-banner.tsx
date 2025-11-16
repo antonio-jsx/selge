@@ -1,12 +1,10 @@
 'use client';
 
-import {
-  type Banner,
-  bannerSchema,
-} from '@/app/(admin)/dashboard/settings/schema';
+import { BannerPreview } from '@/app/(admin)/dashboard/settings/_components/banner-preview';
+import { useSectionSettings } from '@/app/(admin)/dashboard/settings/hooks';
+import { bannerSchema } from '@/app/(admin)/dashboard/settings/schema';
 import Card from '@/components/card';
 import { updateBanner } from '@/server/mutation/update-banner';
-import { BannerPreview } from './banner-preview';
 import { Button } from '@bakan/ui/components/button';
 import { FormField } from '@bakan/ui/components/form-field';
 import { Input } from '@bakan/ui/components/input';
@@ -17,11 +15,19 @@ import { SaveIcon } from 'lucide-react';
 import { useAction } from 'next-safe-action/hooks';
 import { useForm } from 'react-hook-form';
 
-export function SettingsBanner({
-  metadata: { title, description, btnTitle, btnUrl },
-}: {
-  metadata: Banner;
-}) {
+export function SettingsBanner() {
+  const settings = useSectionSettings('hero', {
+    title: '',
+    description: '',
+    metaData: { btnTitle: '', btnUrl: '' },
+  });
+
+  const {
+    title,
+    description,
+    metaData: { btnTitle, btnUrl },
+  } = settings;
+
   const { control, handleSubmit } = useForm({
     resolver: zodResolver(bannerSchema),
     defaultValues: {

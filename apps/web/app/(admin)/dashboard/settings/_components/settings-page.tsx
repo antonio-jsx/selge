@@ -1,5 +1,6 @@
 'use client';
 
+import { useSectionSettings } from '@/app/(admin)/dashboard/settings/hooks';
 import {
   type Settings,
   settingSchema,
@@ -16,7 +17,10 @@ import { SaveIcon } from 'lucide-react';
 import { useAction } from 'next-safe-action/hooks';
 import { useForm } from 'react-hook-form';
 
-export function SettingsPage({ title, description }: Settings) {
+export function SettingsPage() {
+  const settings = useSectionSettings('home', { title: '', description: '' });
+  const { title, description } = settings;
+
   const { control, handleSubmit } = useForm({
     resolver: zodResolver(settingSchema),
     defaultValues: {

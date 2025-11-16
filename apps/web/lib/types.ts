@@ -58,3 +58,8 @@ export interface RemoveStore {
   remove: (section: Section, options: TitleId) => void;
   closeModal: (state: boolean) => void;
 }
+
+export type SectionPages = SelectSettings['section'];
+export interface SettingsContextValue {
+  getSettingsBySection: (section: SectionPages) => SelectSettings | undefined;
+}
