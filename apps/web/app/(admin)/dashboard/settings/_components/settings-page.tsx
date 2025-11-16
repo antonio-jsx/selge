@@ -36,7 +36,10 @@ export function SettingsPage() {
   });
 
   return (
-    <Card title="Settings Page" description="Customize your homepage settings">
+    <Card
+      title="Home Page Settings"
+      description="Customize your homepage settings"
+    >
       <form onSubmit={onSubmit} className="space-y-4">
         <FormField
           control={control}

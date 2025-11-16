@@ -51,8 +51,8 @@ export function SettingsBanner() {
     >
       <div>
         <Card
-          title="Settings Banner"
-          description="Customize your settings banner"
+          title="Banner Settings"
+          description="Customize your banner settings"
         >
           <div className="space-y-4">
             <FormField
