@@ -16,8 +16,8 @@ export const metadata: Metadata = {
   title: 'Settings',
 };
 
-export default async function Settings() {
-  const settings = await getSettings();
+export default function Settings() {
+  const settings = getSettings();
 
   return (
     <SettingsProvider settings={settings}>

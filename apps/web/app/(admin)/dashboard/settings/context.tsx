@@ -2,24 +2,26 @@
 
 import type { SectionPages, SettingsContextValue } from '@/lib/types';
 import type { SelectSettings } from '@bakan/database/schemas/settings';
-import { createContext, useContext } from 'react';
+import { createContext, use, useContext } from 'react';
 
-const SettingsContext = createContext<SettingsContextValue | null>(null);
+export const SettingsContext = createContext<SettingsContextValue | null>(null);
 
 export function SettingsProvider({
   children,
   settings,
 }: {
   children: React.ReactNode;
-  settings: SelectSettings[];
+  settings: Promise<SelectSettings[]>;
 }) {
+  const allSettings = use(settings);
+
   const getSettingsBySection = (section: SectionPages) =>
-    settings.find((item) => item.section === section);
+    allSettings.find((item) => item.section === section);
 
   return (
-    <SettingsContext.Provider value={{ getSettingsBySection }}>
+    <SettingsContext value={{ getSettingsBySection }}>
       {children}
-    </SettingsContext.Provider>
+    </SettingsContext>
   );
 }
 
