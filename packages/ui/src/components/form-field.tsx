@@ -12,22 +12,27 @@ import {
   type FieldValues,
 } from 'react-hook-form';
 
+type FieldWithId<
+  TFieldValues extends FieldValues,
+  TName extends FieldPath<TFieldValues>
+> = ControllerRenderProps<TFieldValues, TName> & {
+  id: string;
+};
+
 interface FieldProps<
   TFieldValues extends FieldValues,
-  TName extends FieldPath<TFieldValues>,
+  TName extends FieldPath<TFieldValues>
 > {
   control: Control<TFieldValues>;
   name: TName;
   label?: string;
   className?: string;
-  render: (
-    field: ControllerRenderProps<TFieldValues, TName>
-  ) => React.ReactNode;
+  render: (field: FieldWithId<TFieldValues, TName>) => React.ReactNode;
 }
 
 export function FormField<
   TFieldValues extends FieldValues,
-  TName extends FieldPath<TFieldValues>,
+  TName extends FieldPath<TFieldValues>
 >({
   control,
   name,
@@ -41,9 +46,16 @@ export function FormField<
       name={name}
       render={({ field, fieldState }) => (
         <Field className={cn(className)} data-invalid={fieldState.invalid}>
-          {label && <FieldLabel>{label}</FieldLabel>}
-          {render(field)}
-          {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
+          {label && <FieldLabel htmlFor={field.name}>{label}</FieldLabel>}
+
+          {render({
+            ...field,
+            id: field.name,
+          })}
+
+          {fieldState.invalid && (
+            <FieldError errors={[fieldState.error]} />
+          )}
         </Field>
       )}
     />
