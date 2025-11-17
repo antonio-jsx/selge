@@ -1,8 +1,8 @@
 'use client';
 
+import { useProductContext } from '@/app/(admin)/dashboard/products/context';
 import { productSchema } from '@/app/(admin)/dashboard/products/schema';
 import { addProduct } from '@/server/mutation/add-product';
-import type { SelectCategory } from '@bakan/database/schemas/category';
 import { Button } from '@bakan/ui/components/button';
 import { Checkbox } from '@bakan/ui/components/checkbox';
 import {
@@ -31,15 +31,11 @@ import { Spinner } from '@bakan/ui/components/spinner';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { PlusIcon } from 'lucide-react';
 import { useAction } from 'next-safe-action/hooks';
-import { use, useState } from 'react';
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 
-export function AddProduct({
-  categories,
-}: {
-  categories: Promise<SelectCategory[]>;
-}) {
-  const allCategories = use(categories);
+export function AddProduct() {
+  const { category: allCategories } = useProductContext();
 
   const [open, setOpen] = useState<boolean>(false);
 

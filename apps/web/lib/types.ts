@@ -70,3 +70,7 @@ export type SectionPages = SelectSettings['section'];
 export interface SettingsContextValue {
   getSettingsBySection: (section: SectionPages) => SelectSettings | undefined;
 }
+
+export interface ProductContextValue {
+  category: SelectCategory[];
+}

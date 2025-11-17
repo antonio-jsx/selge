@@ -1,6 +1,7 @@
 import { AddProduct } from '@/app/(admin)/dashboard/products/_components/add-product';
 import { AllProducts } from '@/app/(admin)/dashboard/products/_components/all-products';
 import { ProductSkeleton } from '@/app/(admin)/dashboard/products/_components/product-skeleton';
+import { ProductsProvider } from '@/app/(admin)/dashboard/products/context';
 import { getCategory } from '@/server/query/category';
 import {
   Table,
@@ -20,10 +21,10 @@ export default function Products() {
   const categories = getCategory();
 
   return (
-    <>
+    <ProductsProvider category={categories}>
       <section className="mb-6 flex items-center justify-between gap-2">
         <h1 className="font-bold text-2xl">Products</h1>
-        <AddProduct categories={categories} />
+        <AddProduct />
       </section>
 
       <section>
@@ -46,6 +47,6 @@ export default function Products() {
           </TableBody>
         </Table>
       </section>
-    </>
+    </ProductsProvider>
   );
 }
