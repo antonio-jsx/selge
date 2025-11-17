@@ -1,8 +1,10 @@
 import { ButtonTrash } from '@/components/button-trash';
 import { EmptyState } from '@/components/empty-state';
 import { getProducts } from '@/server/query/products';
+import { Badge } from '@bakan/ui/components/badge';
 import { TableCell, TableRow } from '@bakan/ui/components/table';
-import { BoxIcon } from 'lucide-react';
+import { cn } from '@bakan/ui/lib/utils';
+import { BoxIcon, CircleIcon } from 'lucide-react';
 
 export async function AllProducts() {
   const products = await getProducts();
@@ -30,7 +32,14 @@ export async function AllProducts() {
       </TableCell>
       <TableCell>{item.price}</TableCell>
       <TableCell>{item.stock}</TableCell>
-      <TableCell>{item.isActive ? 'Active' : 'Disabled'}</TableCell>
+      <TableCell>
+        <Badge variant="outline">
+          <CircleIcon
+            className={cn(item.isActive ? 'fill-green-300' : 'fill-red-300')}
+          />
+          {item.isActive ? 'Active' : 'Disabled'}
+        </Badge>
+      </TableCell>
       <TableCell>
         <ButtonTrash id={item.id} title={item.name} section="products" />
       </TableCell>
