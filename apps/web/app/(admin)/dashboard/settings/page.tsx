@@ -1,5 +1,6 @@
 import { SettingsBanner } from '@/app/(admin)/dashboard/settings/_components/settings-banner';
 import { SettingsPage } from '@/app/(admin)/dashboard/settings/_components/settings-page';
+import { SettingsShipping } from '@/app/(admin)/dashboard/settings/_components/settings-shipping';
 import { SettingsTaxes } from '@/app/(admin)/dashboard/settings/_components/settings-taxes';
 import { SettingsProvider } from '@/app/(admin)/dashboard/settings/context';
 import { getSettings } from '@/server/query/settings';
@@ -27,6 +28,7 @@ export default async function Settings() {
             <TabsTrigger value="page">General</TabsTrigger>
             <TabsTrigger value="hero">Hero banner</TabsTrigger>
             <TabsTrigger value="taxes">Taxes</TabsTrigger>
+            <TabsTrigger value="shipping">Shipping</TabsTrigger>
           </TabsList>
           <TabsContent className="lg:max-w-lg" value="page">
             <SettingsPage />
@@ -36,6 +38,9 @@ export default async function Settings() {
           </TabsContent>
           <TabsContent className="lg:max-w-lg" value="taxes">
             <SettingsTaxes />
+          </TabsContent>
+          <TabsContent className="lg:max-w-lg" value="shipping">
+            <SettingsShipping />
           </TabsContent>
         </Tabs>
       </section>

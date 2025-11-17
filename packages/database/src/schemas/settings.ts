@@ -7,7 +7,12 @@ import {
   varchar,
 } from 'drizzle-orm/pg-core';
 
-export const sectionEnum = pgEnum('section', ['home', 'hero', 'taxes']);
+export const sectionEnum = pgEnum('section', [
+  'home',
+  'hero',
+  'taxes',
+  'shipping',
+]);
 
 export const settings = pgTable('settings', {
   id: integer().primaryKey().generatedAlwaysAsIdentity(),

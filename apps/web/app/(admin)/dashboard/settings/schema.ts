@@ -32,3 +32,11 @@ export const taxesSchema = z.object({
 });
 
 export type Taxes = z.infer<typeof taxesSchema>;
+
+export const shippingSchema = z.object({
+  title: z.string().min(1, 'Delivery time is required'),
+  free: z.boolean(),
+  limit: z.number().min(0, 'Limit must be zero or greater'),
+});
+
+export type Shipping = z.infer<typeof shippingSchema>;

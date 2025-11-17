@@ -33,6 +33,13 @@ export interface TaxSettings extends SelectSettings {
   };
 }
 
+export interface ShippingSettings extends SelectSettings {
+  metaData: {
+    free: boolean;
+    limit: number;
+  };
+}
+
 export interface EmptyStateProps {
   Icon: LucideIcon;
   title: string;
