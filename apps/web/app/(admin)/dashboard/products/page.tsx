@@ -1,7 +1,9 @@
 import { AddProduct } from '@/app/(admin)/dashboard/products/_components/add-product';
 import { AllProducts } from '@/app/(admin)/dashboard/products/_components/all-products';
+import { Filters } from '@/app/(admin)/dashboard/products/_components/filterts';
 import { ProductSkeleton } from '@/app/(admin)/dashboard/products/_components/product-skeleton';
 import { ProductsProvider } from '@/app/(admin)/dashboard/products/context';
+import { loadSearchParams } from '@/app/(admin)/dashboard/products/searchParams';
 import { getCategory } from '@/server/query/category';
 import {
   Table,
@@ -11,13 +13,20 @@ import {
   TableRow,
 } from '@bakan/ui/components/table';
 import type { Metadata } from 'next';
+import type { SearchParams } from 'nuqs/server';
 import { Suspense } from 'react';
+
+type PageProps = {
+  searchParams: Promise<SearchParams>;
+};
 
 export const metadata: Metadata = {
   title: 'Products',
 };
 
-export default function Products() {
+export default async function Products({ searchParams }: PageProps) {
+  const { q } = await loadSearchParams(searchParams);
+
   const categories = getCategory();
 
   return (
@@ -27,7 +36,9 @@ export default function Products() {
         <AddProduct />
       </section>
 
-      <section>
+      <section className="space-y-4">
+        <Filters />
+
         <Table>
           <TableHeader>
             <TableRow>
@@ -42,7 +53,7 @@ export default function Products() {
           </TableHeader>
           <TableBody>
             <Suspense fallback={<ProductSkeleton />}>
-              <AllProducts />
+              <AllProducts search={q} />
             </Suspense>
           </TableBody>
         </Table>

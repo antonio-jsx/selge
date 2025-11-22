@@ -5,12 +5,21 @@ import { slugify } from '@/lib/utils';
 import { db } from '@bakan/database';
 import type { SelectProduct } from '@bakan/database/schemas/products';
 
-export async function getProducts(): Promise<ProductsWithCategory[]> {
-  const result = await db.query.products.findMany({
+export async function getProducts({
+  search,
+}: {
+  search: string;
+}): Promise<ProductsWithCategory[]> {
+  const result = db.query.products.findMany({
     with: {
       category: true,
     },
+    where:
+      search === ''
+        ? undefined
+        : (products, { ilike }) => ilike(products.name, `%${search}%`),
   });
+
   return result;
 }
 

@@ -6,8 +6,8 @@ import { TableCell, TableRow } from '@bakan/ui/components/table';
 import { cn } from '@bakan/ui/lib/utils';
 import { BoxIcon, CircleIcon } from 'lucide-react';
 
-export async function AllProducts() {
-  const products = await getProducts();
+export async function AllProducts({ search }: { search: string }) {
+  const products = await getProducts({ search });
 
   if (products.length <= 0) {
     return (
