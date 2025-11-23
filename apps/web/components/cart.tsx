@@ -2,15 +2,15 @@
 
 import { ItemsCart } from '@/components/items-cart';
 import { useShopping } from '@/store/shopping';
-import { Badge } from '@bakan/ui/components/badge';
-import { Button } from '@bakan/ui/components/button';
+import { Badge } from '@selge/ui/components/badge';
+import { Button } from '@selge/ui/components/button';
 import {
   Sheet,
   SheetContent,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-} from '@bakan/ui/components/sheet';
+} from '@selge/ui/components/sheet';
 import { ShoppingCartIcon } from 'lucide-react';
 
 export function Cart() {

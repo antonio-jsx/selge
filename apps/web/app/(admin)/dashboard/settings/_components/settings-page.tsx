@@ -7,12 +7,12 @@ import {
 } from '@/app/(admin)/dashboard/settings/schema';
 import Card from '@/components/card';
 import { updateSettings } from '@/server/mutation/update-settings';
-import { Button } from '@bakan/ui/components/button';
-import { FormField } from '@bakan/ui/components/form-field';
-import { Input } from '@bakan/ui/components/input';
-import { Spinner } from '@bakan/ui/components/spinner';
-import { Textarea } from '@bakan/ui/components/textarea';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { Button } from '@selge/ui/components/button';
+import { FormField } from '@selge/ui/components/form-field';
+import { Input } from '@selge/ui/components/input';
+import { Spinner } from '@selge/ui/components/spinner';
+import { Textarea } from '@selge/ui/components/textarea';
 import { SaveIcon } from 'lucide-react';
 import { useAction } from 'next-safe-action/hooks';
 import { useForm } from 'react-hook-form';

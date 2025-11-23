@@ -11,7 +11,7 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from '@bakan/ui/components/table';
+} from '@selge/ui/components/table';
 import type { Metadata } from 'next';
 import type { SearchParams } from 'nuqs/server';
 import { Suspense } from 'react';

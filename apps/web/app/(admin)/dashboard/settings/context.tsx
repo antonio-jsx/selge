@@ -1,7 +1,7 @@
 'use client';
 
 import type { SectionPages, SettingsContextValue } from '@/lib/types';
-import type { SelectSettings } from '@bakan/database/schemas/settings';
+import type { SelectSettings } from '@selge/database/schemas/settings';
 import { createContext, use, useContext } from 'react';
 
 export const SettingsContext = createContext<SettingsContextValue | null>(null);

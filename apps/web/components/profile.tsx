@@ -1,13 +1,13 @@
 'use client';
 
 import { getInitials } from '@/lib/utils';
-import { signOut, useSession } from '@bakan/auth/client';
+import { signOut, useSession } from '@selge/auth/client';
 import {
   Avatar,
   AvatarFallback,
   AvatarImage,
-} from '@bakan/ui/components/avatar';
-import { Button } from '@bakan/ui/components/button';
+} from '@selge/ui/components/avatar';
+import { Button } from '@selge/ui/components/button';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -15,8 +15,8 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from '@bakan/ui/components/dropdown-menu';
-import { Skeleton } from '@bakan/ui/components/skeleton';
+} from '@selge/ui/components/dropdown-menu';
+import { Skeleton } from '@selge/ui/components/skeleton';
 import { LogOutIcon, UserIcon } from 'lucide-react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';

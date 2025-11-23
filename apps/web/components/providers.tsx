@@ -1,6 +1,6 @@
 'use client';
 
-import { Toaster } from '@bakan/ui/components/sonner';
+import { Toaster } from '@selge/ui/components/sonner';
 import { ThemeProvider as NextThemesProvider } from 'next-themes';
 import { NuqsAdapter } from 'nuqs/adapters/next/app';
 import type * as React from 'react';

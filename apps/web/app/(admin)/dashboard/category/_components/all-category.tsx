@@ -8,7 +8,7 @@ import {
   ItemDescription,
   ItemMedia,
   ItemTitle,
-} from '@bakan/ui/components/item';
+} from '@selge/ui/components/item';
 import { TagsIcon } from 'lucide-react';
 
 export async function AllCategory() {

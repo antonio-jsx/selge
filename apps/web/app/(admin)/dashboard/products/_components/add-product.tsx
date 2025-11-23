@@ -3,8 +3,9 @@
 import { useProductContext } from '@/app/(admin)/dashboard/products/context';
 import { productSchema } from '@/app/(admin)/dashboard/products/schema';
 import { addProduct } from '@/server/mutation/add-product';
-import { Button } from '@bakan/ui/components/button';
-import { Checkbox } from '@bakan/ui/components/checkbox';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { Button } from '@selge/ui/components/button';
+import { Checkbox } from '@selge/ui/components/checkbox';
 import {
   Dialog,
   DialogClose,
@@ -14,21 +15,20 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from '@bakan/ui/components/dialog';
-import { FormField } from '@bakan/ui/components/form-field';
-import { Input } from '@bakan/ui/components/input';
+} from '@selge/ui/components/dialog';
+import { FormField } from '@selge/ui/components/form-field';
+import { Input } from '@selge/ui/components/input';
 import {
   InputGroup,
   InputGroupAddon,
   InputGroupText,
   InputGroupTextarea,
-} from '@bakan/ui/components/input-group';
+} from '@selge/ui/components/input-group';
 import {
   NativeSelect,
   NativeSelectOption,
-} from '@bakan/ui/components/native-select';
-import { Spinner } from '@bakan/ui/components/spinner';
-import { zodResolver } from '@hookform/resolvers/zod';
+} from '@selge/ui/components/native-select';
+import { Spinner } from '@selge/ui/components/spinner';
 import { PlusIcon } from 'lucide-react';
 import { useAction } from 'next-safe-action/hooks';
 import { useState } from 'react';

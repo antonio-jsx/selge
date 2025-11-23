@@ -1,5 +1,5 @@
 {
-  "name": "@bakan/database",
+  "name": "@selge/database",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -23,7 +23,7 @@
     "zod": "4.1.12"
   },
   "devDependencies": {
-    "@bakan/typescript-config": "workspace:*",
+    "@selge/typescript-config": "workspace:*",
     "@biomejs/biome": "2.3.3",
     "@types/node": "24.9.2",
     "@types/pg": "8.15.6",

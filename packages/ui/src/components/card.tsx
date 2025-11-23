@@ -1,4 +1,4 @@
-import { cn } from '@bakan/ui/lib/utils';
+import { cn } from '@selge/ui/lib/utils';
 import type * as React from 'react';
 
 function Card({ className, ...props }: React.ComponentProps<'div'>) {

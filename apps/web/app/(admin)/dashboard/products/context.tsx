@@ -1,7 +1,7 @@
 'use client';
 
 import type { ProductContextValue } from '@/lib/types';
-import type { SelectCategory } from '@bakan/database/schemas/category';
+import type { SelectCategory } from '@selge/database/schemas/category';
 import { createContext, use, useContext } from 'react';
 
 export const ProductsContext = createContext<ProductContextValue | null>(null);

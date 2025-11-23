@@ -1,13 +1,13 @@
 import { AddToCart } from '@/components/add-to-cart';
 import { slugify } from '@/lib/utils';
-import type { SelectProduct } from '@bakan/database/schemas/products';
+import type { SelectProduct } from '@selge/database/schemas/products';
 import {
   Item,
   ItemContent,
   ItemDescription,
   ItemHeader,
   ItemTitle,
-} from '@bakan/ui/components/item';
+} from '@selge/ui/components/item';
 import Link from 'next/link';
 
 export function Product({ item }: { item: SelectProduct }) {

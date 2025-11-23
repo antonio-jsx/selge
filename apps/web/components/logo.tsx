@@ -3,52 +3,28 @@ import type { SVGProps } from 'react';
 export function Logo(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
-      width="202"
-      height="205"
-      viewBox="0 0 202 205"
+      width="201"
+      height="166"
+      viewBox="0 0 201 166"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
-      <title>Bakan</title>
-      <rect width="40" height="40" style={{ fill: 'hsl(var(--foreground))' }} />
-      <rect
-        x="45"
-        width="120"
-        height="40"
+      <title>Selge</title>
+      <path
+        d="M117.466 150.3C107.293 158.799 94.6567 155.881 89.2405 143.783L77.6784 117.957L106.48 93.8956C109.87 91.0629 114.083 92.0355 115.888 96.0681L130.719 129.195C132.524 133.228 131.239 138.793 127.848 141.626L117.466 150.3Z"
         style={{ fill: 'hsl(var(--foreground))' }}
       />
-      <rect
-        x="122"
-        y="37"
-        width="43"
-        height="83"
+      <path
+        d="M48.8772 142.019C45.4865 144.852 41.2742 143.879 39.4688 139.847L10.2154 74.5054C4.57359 61.9036 8.58962 44.5115 19.1855 35.6592L28.8011 27.626C32.1918 24.7932 36.404 25.7659 38.2094 29.7985L77.6783 117.958L48.8772 142.019Z"
         style={{ fill: 'hsl(var(--foreground))' }}
       />
-      <rect
-        x="162"
-        y="80"
-        width="40"
-        height="82.5"
+      <path
+        d="M82.7005 15.3874C92.8726 6.88916 105.509 9.80717 110.926 21.9049L122.488 47.7303L93.6864 71.7921C90.2958 74.6249 86.0835 73.6522 84.2781 69.6196L69.4471 36.4926C67.6417 32.46 68.9268 26.8945 72.3175 24.0618L82.7005 15.3874Z"
         style={{ fill: 'hsl(var(--foreground))' }}
       />
-      <rect
-        y="80"
-        width="125"
-        height="40"
-        style={{ fill: 'hsl(var(--foreground))' }}
-      />
-      <rect
-        x="40"
-        y="164.5"
-        width="122"
-        height="40"
-        style={{ fill: 'hsl(var(--foreground))' }}
-      />
-      <rect
-        y="45"
-        width="40"
-        height="118"
+      <path
+        d="M151.289 23.6684C154.68 20.8357 158.892 21.8084 160.697 25.8409L190.359 92.095C195.775 104.193 191.92 120.889 181.748 129.387L171.365 138.062C167.974 140.895 163.762 139.922 161.957 135.889L122.488 47.7302L151.289 23.6684Z"
         style={{ fill: 'hsl(var(--foreground))' }}
       />
     </svg>

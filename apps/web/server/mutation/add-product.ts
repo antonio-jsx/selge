@@ -3,8 +3,8 @@
 import { productSchema } from '@/app/(admin)/dashboard/products/schema';
 import { actionClient } from '@/lib/safe-action';
 import { isAdminMiddleware } from '@/lib/user-auth';
-import { db } from '@bakan/database';
-import { products } from '@bakan/database/schemas/products';
+import { db } from '@selge/database';
+import { products } from '@selge/database/schemas/products';
 import { updateTag } from 'next/cache';
 
 export const addProduct = actionClient

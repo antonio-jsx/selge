@@ -3,7 +3,7 @@ import type { NextConfig } from 'next';
 const nextConfig: NextConfig = {
   reactCompiler: true,
   cacheComponents: true,
-  transpilePackages: ['@bakan/ui'],
+  transpilePackages: ['@selge/ui'],
 };
 
 export default nextConfig;

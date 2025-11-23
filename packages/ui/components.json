@@ -11,10 +11,10 @@
   },
   "iconLibrary": "lucide",
   "aliases": {
-    "components": "@bakan/ui/components",
-    "utils": "@bakan/ui/lib/utils",
-    "hooks": "@bakan/ui/hooks",
-    "lib": "@bakan/ui/lib",
-    "ui": "@bakan/ui/components"
+    "components": "@selge/ui/components",
+    "utils": "@selge/ui/lib/utils",
+    "hooks": "@selge/ui/hooks",
+    "lib": "@selge/ui/lib",
+    "ui": "@selge/ui/components"
   }
 }

@@ -2,7 +2,7 @@
 
 import { useShopping } from '@/store/shopping';
 import { EmptyState } from './empty-state';
-import { Button } from '@bakan/ui/components/button';
+import { Button } from '@selge/ui/components/button';
 import {
   Item,
   ItemActions,
@@ -10,7 +10,7 @@ import {
   ItemDescription,
   ItemMedia,
   ItemTitle,
-} from '@bakan/ui/components/item';
+} from '@selge/ui/components/item';
 import { ShoppingCartIcon, TrashIcon } from 'lucide-react';
 
 export function ItemsCart() {

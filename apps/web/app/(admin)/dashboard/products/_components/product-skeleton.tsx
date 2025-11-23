@@ -1,5 +1,5 @@
-import { Skeleton } from '@bakan/ui/components/skeleton';
-import { TableCell, TableRow } from '@bakan/ui/components/table';
+import { Skeleton } from '@selge/ui/components/skeleton';
+import { TableCell, TableRow } from '@selge/ui/components/table';
 
 export function ProductSkeleton() {
   return Array.from({ length: 5 }).map((_, rowIndex) => (

@@ -1,9 +1,9 @@
 {
-  "extends": "@bakan/typescript-config/react-library.json",
+  "extends": "@selge/typescript-config/react-library.json",
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@bakan/ui/*": ["./src/*"]
+      "@selge/ui/*": ["./src/*"]
     }
   },
   "include": ["."],

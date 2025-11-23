@@ -1,24 +1,24 @@
 'use client';
 
-import { Button } from '@bakan/ui/components/button';
-import { Input } from '@bakan/ui/components/input';
-import { Separator } from '@bakan/ui/components/separator';
+import { Button } from '@selge/ui/components/button';
+import { Input } from '@selge/ui/components/input';
+import { Separator } from '@selge/ui/components/separator';
 import {
   Sheet,
   SheetContent,
   SheetDescription,
   SheetHeader,
   SheetTitle,
-} from '@bakan/ui/components/sheet';
-import { Skeleton } from '@bakan/ui/components/skeleton';
+} from '@selge/ui/components/sheet';
+import { Skeleton } from '@selge/ui/components/skeleton';
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from '@bakan/ui/components/tooltip';
-import { useIsMobile } from '@bakan/ui/hooks/use-mobile';
-import { cn } from '@bakan/ui/lib/utils';
+} from '@selge/ui/components/tooltip';
+import { useIsMobile } from '@selge/ui/hooks/use-mobile';
+import { cn } from '@selge/ui/lib/utils';
 import { Slot } from '@radix-ui/react-slot';
 import { cva, type VariantProps } from 'class-variance-authority';
 import { PanelLeftIcon } from 'lucide-react';

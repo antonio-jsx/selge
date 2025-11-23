@@ -4,19 +4,19 @@ import { shippingSchema } from '@/app/(admin)/dashboard/settings/schema';
 import Card from '@/components/card';
 import { updateShipping } from '@/server/mutation/update-shipping';
 import { useSectionSettings } from '../hooks';
-import { Button } from '@bakan/ui/components/button';
-import { FormField } from '@bakan/ui/components/form-field';
-import { Input } from '@bakan/ui/components/input';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { Button } from '@selge/ui/components/button';
+import { FormField } from '@selge/ui/components/form-field';
+import { Input } from '@selge/ui/components/input';
 import {
   Item,
   ItemActions,
   ItemContent,
   ItemDescription,
   ItemTitle,
-} from '@bakan/ui/components/item';
-import { Spinner } from '@bakan/ui/components/spinner';
-import { Switch } from '@bakan/ui/components/switch';
-import { zodResolver } from '@hookform/resolvers/zod';
+} from '@selge/ui/components/item';
+import { Spinner } from '@selge/ui/components/spinner';
+import { Switch } from '@selge/ui/components/switch';
 import { SaveIcon } from 'lucide-react';
 import { useAction } from 'next-safe-action/hooks';
 import { useForm } from 'react-hook-form';

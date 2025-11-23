@@ -9,7 +9,7 @@ import {
   TabsContent,
   TabsList,
   TabsTrigger,
-} from '@bakan/ui/components/tabs';
+} from '@selge/ui/components/tabs';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {

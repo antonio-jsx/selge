@@ -1,9 +1,9 @@
 import { ButtonTrash } from '@/components/button-trash';
 import { EmptyState } from '@/components/empty-state';
 import { getProducts } from '@/server/query/products';
-import { Badge } from '@bakan/ui/components/badge';
-import { TableCell, TableRow } from '@bakan/ui/components/table';
-import { cn } from '@bakan/ui/lib/utils';
+import { Badge } from '@selge/ui/components/badge';
+import { TableCell, TableRow } from '@selge/ui/components/table';
+import { cn } from '@selge/ui/lib/utils';
 import { BoxIcon, CircleIcon } from 'lucide-react';
 
 export async function AllProducts({ search }: { search: string }) {

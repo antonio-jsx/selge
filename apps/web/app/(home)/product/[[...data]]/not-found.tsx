@@ -4,7 +4,7 @@ import {
   EmptyHeader,
   EmptyMedia,
   EmptyTitle,
-} from '@bakan/ui/components/empty';
+} from '@selge/ui/components/empty';
 import { BoxIcon } from 'lucide-react';
 
 export default function NotFound() {

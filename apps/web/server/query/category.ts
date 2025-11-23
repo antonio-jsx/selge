@@ -1,6 +1,6 @@
 import 'server-only';
 
-import { db, sql } from '@bakan/database';
+import { db, sql } from '@selge/database';
 import { cacheTag } from 'next/cache';
 
 export async function getCategory() {

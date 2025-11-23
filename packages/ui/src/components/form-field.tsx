@@ -2,8 +2,8 @@ import {
   FieldError,
   FieldLabel,
   Field,
-} from '@bakan/ui/components/field';
-import { cn } from '@bakan/ui/lib/utils';
+} from '@selge/ui/components/field';
+import { cn } from '@selge/ui/lib/utils';
 import {
   type Control,
   Controller,

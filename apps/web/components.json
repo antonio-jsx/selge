@@ -12,9 +12,9 @@
   "iconLibrary": "lucide",
   "aliases": {
     "components": "@/components",
-    "hooks": "@bakan/ui/hooks",
+    "hooks": "@selge/ui/hooks",
     "lib": "@/lib",
-    "utils": "@bakan/ui/lib/utils",
-    "ui": "@bakan/ui/components"
+    "utils": "@selge/ui/lib/utils",
+    "ui": "@selge/ui/components"
   }
 }

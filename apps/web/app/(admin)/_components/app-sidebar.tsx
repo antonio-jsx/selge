@@ -11,7 +11,7 @@ import {
   SidebarGroupContent,
   SidebarHeader,
   SidebarMenu,
-} from '@bakan/ui/components/sidebar';
+} from '@selge/ui/components/sidebar';
 import { Suspense } from 'react';
 
 async function Menu() {
@@ -24,7 +24,7 @@ export function AppSidebar() {
   return (
     <Sidebar>
       <SidebarHeader>
-        <Logo className="size-5 fill-black dark:fill-white" />
+        <Logo className="size-6 fill-black dark:fill-white" />
       </SidebarHeader>
       <SidebarContent>
         <SidebarGroup>

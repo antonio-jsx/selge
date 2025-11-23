@@ -2,7 +2,8 @@
 
 import { categorySchema } from '@/app/(admin)/dashboard/category/schema';
 import { addCategory } from '@/server/mutation/add-category';
-import { Button } from '@bakan/ui/components/button';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { Button } from '@selge/ui/components/button';
 import {
   Dialog,
   DialogClose,
@@ -12,11 +13,10 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from '@bakan/ui/components/dialog';
-import { FormField } from '@bakan/ui/components/form-field';
-import { Input } from '@bakan/ui/components/input';
-import { Spinner } from '@bakan/ui/components/spinner';
-import { zodResolver } from '@hookform/resolvers/zod';
+} from '@selge/ui/components/dialog';
+import { FormField } from '@selge/ui/components/form-field';
+import { Input } from '@selge/ui/components/input';
+import { Spinner } from '@selge/ui/components/spinner';
 import { PlusIcon } from 'lucide-react';
 import { useAction } from 'next-safe-action/hooks';
 import { useState } from 'react';

@@ -1,7 +1,7 @@
 import 'server-only';
 
-import { db } from '@bakan/database';
-import type { SelectSettings } from '@bakan/database/schemas/settings';
+import { db } from '@selge/database';
+import type { SelectSettings } from '@selge/database/schemas/settings';
 import { cacheTag } from 'next/cache';
 
 export async function getSettings(): Promise<SelectSettings[]> {

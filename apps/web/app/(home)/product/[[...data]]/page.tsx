@@ -1,7 +1,7 @@
 import { productParamsSchema } from '@/app/(home)/product/[[...data]]/schema';
 import { AddToCart } from '@/components/add-to-cart';
 import { getProductById } from '@/server/query/products';
-import { Separator } from '@bakan/ui/components/separator';
+import { Separator } from '@selge/ui/components/separator';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { cache } from 'react';

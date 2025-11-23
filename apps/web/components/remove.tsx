@@ -11,8 +11,8 @@ import {
   AlertDialogFooter,
   AlertDialogHeader,
   AlertDialogTitle,
-} from '@bakan/ui/components/alert-dialog';
-import { Spinner } from '@bakan/ui/components/spinner';
+} from '@selge/ui/components/alert-dialog';
+import { Spinner } from '@selge/ui/components/spinner';
 import { useAction } from 'next-safe-action/hooks';
 
 export function Remove() {

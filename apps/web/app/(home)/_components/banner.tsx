@@ -1,6 +1,6 @@
 import type { HeroSettings } from '@/lib/types';
 import { getSettings } from '@/server/query/settings';
-import { Button } from '@bakan/ui/components/button';
+import { Button } from '@selge/ui/components/button';
 
 export async function Banner() {
   const settings = await getSettings();

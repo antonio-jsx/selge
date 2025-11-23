@@ -18,7 +18,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           <div className="mx-auto max-w-6xl px-4 md:px-0">
             <div className="flex items-center justify-between gap-6 py-3 lg:gap-0 lg:py-4">
               <div className="flex w-full justify-between lg:w-auto">
-                <Logo className="size-7 fill-black dark:fill-white" />
+                <Logo className="size-8 fill-black dark:fill-white" />
               </div>
 
               <div className="hidden size-fit lg:block">

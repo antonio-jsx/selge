@@ -1,6 +1,6 @@
 import { AppSidebar } from '@/app/(admin)/_components/app-sidebar';
 import { Remove } from '@/components/remove';
-import { SidebarInset, SidebarProvider } from '@bakan/ui/components/sidebar';
+import { SidebarInset, SidebarProvider } from '@selge/ui/components/sidebar';
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (

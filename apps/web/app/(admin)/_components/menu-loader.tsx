@@ -1,4 +1,4 @@
-import { Skeleton } from '@bakan/ui/components/skeleton';
+import { Skeleton } from '@selge/ui/components/skeleton';
 
 export function MenuLoader() {
   return Array.from({ length: 5 }).map((_, index) => (

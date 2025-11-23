@@ -1,7 +1,7 @@
 import 'server-only';
 
 import { ActionError } from '@/lib/safe-action';
-import { auth } from '@bakan/auth';
+import { auth } from '@selge/auth';
 import { headers } from 'next/headers';
 import { redirect } from 'next/navigation';
 import { createMiddleware } from 'next-safe-action';

@@ -1,1 +1,1 @@
-export { db } from '@bakan/database';
+export { db } from '@selge/database';

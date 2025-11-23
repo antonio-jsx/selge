@@ -4,8 +4,8 @@ import {
   CardHeader,
   CardTitle,
   Card as CardUI,
-} from '@bakan/ui/components/card';
-import { cn } from '@bakan/ui/lib/utils';
+} from '@selge/ui/components/card';
+import { cn } from '@selge/ui/lib/utils';
 
 type CardProps = {
   title: string;

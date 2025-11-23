@@ -1,9 +1,9 @@
 'use client';
 
-import { Button } from '@bakan/ui/components/button';
-import { Input } from '@bakan/ui/components/input';
-import { Textarea } from '@bakan/ui/components/textarea';
-import { cn } from '@bakan/ui/lib/utils';
+import { Button } from '@selge/ui/components/button';
+import { Input } from '@selge/ui/components/input';
+import { Textarea } from '@selge/ui/components/textarea';
+import { cn } from '@selge/ui/lib/utils';
 import { cva, type VariantProps } from 'class-variance-authority';
 import type * as React from 'react';
 

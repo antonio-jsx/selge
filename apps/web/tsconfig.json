@@ -1,10 +1,10 @@
 {
-  "extends": "@bakan/typescript-config/nextjs.json",
+  "extends": "@selge/typescript-config/nextjs.json",
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
       "@/*": ["./*"],
-      "@bakan/ui/*": ["../../packages/ui/src/*"]
+      "@selge/ui/*": ["../../packages/ui/src/*"]
     },
     "plugins": [
       {

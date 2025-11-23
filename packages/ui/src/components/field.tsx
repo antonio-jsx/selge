@@ -1,8 +1,8 @@
 'use client';
 
-import { Label } from '@bakan/ui/components/label';
-import { Separator } from '@bakan/ui/components/separator';
-import { cn } from '@bakan/ui/lib/utils';
+import { Label } from '@selge/ui/components/label';
+import { Separator } from '@selge/ui/components/separator';
+import { cn } from '@selge/ui/lib/utils';
 import { cva, type VariantProps } from 'class-variance-authority';
 import { useMemo } from 'react';
 

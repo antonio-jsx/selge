@@ -1,1 +1,1 @@
-export { GET, POST } from '@bakan/auth/api';
+export { GET, POST } from '@selge/auth/api';

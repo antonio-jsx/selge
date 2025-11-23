@@ -5,7 +5,7 @@ import {
   EmptyHeader,
   EmptyMedia,
   EmptyTitle,
-} from '@bakan/ui/components/empty';
+} from '@selge/ui/components/empty';
 
 export function EmptyState({ Icon, title, description }: EmptyStateProps) {
   return (

@@ -3,7 +3,7 @@ import {
   InputGroupAddon,
   InputGroupButton,
   InputGroupInput,
-} from '@bakan/ui/components/input-group';
+} from '@selge/ui/components/input-group';
 import { EyeIcon, EyeOffIcon, LockIcon } from 'lucide-react';
 import { useState } from 'react';
 

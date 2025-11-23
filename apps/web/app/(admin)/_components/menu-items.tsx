@@ -4,7 +4,7 @@ import type { Menu } from '@/lib/types';
 import {
   SidebarMenuButton,
   SidebarMenuItem,
-} from '@bakan/ui/components/sidebar';
+} from '@selge/ui/components/sidebar';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 

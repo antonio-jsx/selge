@@ -1,5 +1,5 @@
 import type { Banner } from '@/app/(admin)/dashboard/settings/schema';
-import { Button } from '@bakan/ui/components/button';
+import { Button } from '@selge/ui/components/button';
 import { type Control, useWatch } from 'react-hook-form';
 
 export function BannerPreview({ control }: { control: Control<Banner> }) {

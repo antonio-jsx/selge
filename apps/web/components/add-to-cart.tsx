@@ -1,9 +1,9 @@
 'use client';
 
 import { useShopping } from '@/store/shopping';
-import type { SelectProduct } from '@bakan/database/schemas/products';
-import { Button } from '@bakan/ui/components/button';
-import { toast } from '@bakan/ui/components/sonner';
+import type { SelectProduct } from '@selge/database/schemas/products';
+import { Button } from '@selge/ui/components/button';
+import { toast } from '@selge/ui/components/sonner';
 import { ShoppingCartIcon } from 'lucide-react';
 
 export function AddToCart({ product }: { product: SelectProduct }) {

@@ -1,5 +1,5 @@
-import { Separator } from '@bakan/ui/components/separator';
-import { Skeleton } from '@bakan/ui/components/skeleton';
+import { Separator } from '@selge/ui/components/separator';
+import { Skeleton } from '@selge/ui/components/skeleton';
 
 export default function Loading() {
   return (

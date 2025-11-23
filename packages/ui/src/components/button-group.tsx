@@ -1,5 +1,5 @@
-import { Separator } from '@bakan/ui/components/separator';
-import { cn } from '@bakan/ui/lib/utils';
+import { Separator } from '@selge/ui/components/separator';
+import { cn } from '@selge/ui/lib/utils';
 import { Slot } from '@radix-ui/react-slot';
 import { cva, type VariantProps } from 'class-variance-authority';
 

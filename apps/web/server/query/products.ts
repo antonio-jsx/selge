@@ -2,8 +2,8 @@ import 'server-only';
 
 import type { ProductsWithCategory } from '@/lib/types';
 import { slugify } from '@/lib/utils';
-import { db } from '@bakan/database';
-import type { SelectProduct } from '@bakan/database/schemas/products';
+import { db } from '@selge/database';
+import type { SelectProduct } from '@selge/database/schemas/products';
 
 export async function getProducts({
   search,

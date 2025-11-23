@@ -2,7 +2,7 @@
 
 import type { Section } from '@/lib/types';
 import { useRemove } from '@/store/remove';
-import { Button } from '@bakan/ui/components/button';
+import { Button } from '@selge/ui/components/button';
 import { TrashIcon } from 'lucide-react';
 
 export function ButtonTrash({

@@ -1,5 +1,5 @@
 {
-  "name": "@bakan/ui",
+  "name": "@selge/ui",
   "version": "0.0.0",
   "type": "module",
   "private": true,
@@ -37,7 +37,7 @@
     "zod": "4.1.12"
   },
   "devDependencies": {
-    "@bakan/typescript-config": "workspace:*",
+    "@selge/typescript-config": "workspace:*",
     "@biomejs/biome": "2.3.3",
     "@tailwindcss/postcss": "4.1.16",
     "@turbo/gen": "2.5.8",

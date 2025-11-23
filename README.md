@@ -1,9 +1,9 @@
 ## Structure
 
-bakan uses a monorepo structure managed by Turborepo:
+selge uses a monorepo structure managed by Turborepo:
 
 ```
-bakan/
+selge/
 ├── apps/                        # Deployable applications
 │   ├── web/                     # website
 ├── packages/                    # Shared packages

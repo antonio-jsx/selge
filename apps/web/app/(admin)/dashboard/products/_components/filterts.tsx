@@ -5,7 +5,7 @@ import {
   InputGroup,
   InputGroupAddon,
   InputGroupInput,
-} from '@bakan/ui/components/input-group';
+} from '@selge/ui/components/input-group';
 import { SearchIcon } from 'lucide-react';
 import { debounce, useQueryStates } from 'nuqs';
 

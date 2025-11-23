@@ -1,19 +1,19 @@
 'use client';
 
 import { userSchema } from '@/app/(login)/schema';
-import { signIn } from '@bakan/auth/client';
-import { Button } from '@bakan/ui/components/button';
-import { FieldGroup } from '@bakan/ui/components/field';
-import { FormField } from '@bakan/ui/components/form-field';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { signIn } from '@selge/auth/client';
+import { Button } from '@selge/ui/components/button';
+import { FieldGroup } from '@selge/ui/components/field';
+import { FormField } from '@selge/ui/components/form-field';
 import {
   InputGroup,
   InputGroupAddon,
   InputGroupInput,
-} from '@bakan/ui/components/input-group';
-import { Password } from '@bakan/ui/components/password';
-import { toast } from '@bakan/ui/components/sonner';
-import { Spinner } from '@bakan/ui/components/spinner';
-import { zodResolver } from '@hookform/resolvers/zod';
+} from '@selge/ui/components/input-group';
+import { Password } from '@selge/ui/components/password';
+import { toast } from '@selge/ui/components/sonner';
+import { Spinner } from '@selge/ui/components/spinner';
 import { MailIcon } from 'lucide-react';
 import Link from 'next/link';
 import { useForm } from 'react-hook-form';

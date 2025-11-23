@@ -3,8 +3,8 @@
 import { bannerSchema } from '@/app/(admin)/dashboard/settings/schema';
 import { actionClient } from '@/lib/safe-action';
 import { isAdminMiddleware } from '@/lib/user-auth';
-import { db } from '@bakan/database';
-import { settings } from '@bakan/database/schemas/settings';
+import { db } from '@selge/database';
+import { settings } from '@selge/database/schemas/settings';
 import { updateTag } from 'next/cache';
 
 export const updateBanner = actionClient
