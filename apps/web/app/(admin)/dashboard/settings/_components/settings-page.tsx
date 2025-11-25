@@ -18,14 +18,26 @@ import { useAction } from 'next-safe-action/hooks';
 import { useForm } from 'react-hook-form';
 
 export function SettingsPage() {
-  const settings = useSectionSettings('home', { title: '', description: '' });
-  const { title, description } = settings;
+  const settings = useSectionSettings('home', {
+    title: '',
+    description: '',
+    metaData: { phone: '', email: '', address: '' },
+  });
+
+  const {
+    title,
+    description,
+    metaData: { phone, email, address },
+  } = settings;
 
   const { control, handleSubmit } = useForm({
     resolver: zodResolver(settingSchema),
     defaultValues: {
       title,
       description,
+      phone,
+      email,
+      address,
     },
   });
 
@@ -51,6 +63,30 @@ export function SettingsPage() {
           control={control}
           name="description"
           label="Description"
+          render={(field) => <Textarea {...field} />}
+        />
+
+        <p>Contact information</p>
+
+        <div className="flex items-center gap-4">
+          <FormField
+            control={control}
+            name="phone"
+            label="Phone"
+            render={(field) => <Input {...field} />}
+          />
+          <FormField
+            control={control}
+            name="email"
+            label="Email"
+            render={(field) => <Input {...field} />}
+          />
+        </div>
+
+        <FormField
+          control={control}
+          name="address"
+          label="Address"
           render={(field) => <Textarea {...field} />}
         />
 

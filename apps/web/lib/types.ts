@@ -27,6 +27,14 @@ export interface HeroSettings extends SelectSettings {
   };
 }
 
+export interface HomeSettings extends SelectSettings {
+  metaData: {
+    phone: string;
+    email: string;
+    address: string;
+  };
+}
+
 export interface TaxSettings extends SelectSettings {
   metaData: {
     taxValue: number;

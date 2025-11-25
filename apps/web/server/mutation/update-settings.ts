@@ -11,13 +11,13 @@ export const updateSettings = actionClient
   .use(isAdminMiddleware)
   .metadata({ name: 'update-settings' })
   .inputSchema(settingSchema)
-  .action(async ({ parsedInput: data }) => {
+  .action(async ({ parsedInput: { phone, email, address, ...data } }) => {
     await db
       .insert(settings)
-      .values({ ...data, section: 'home' })
+      .values({ ...data, metaData: { phone, email, address }, section: 'home' })
       .onConflictDoUpdate({
         target: settings.section,
-        set: data,
+        set: { ...data, metaData: { phone, email, address } },
       });
     updateTag('settings');
   });

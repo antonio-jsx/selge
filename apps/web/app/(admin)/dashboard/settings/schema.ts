@@ -6,6 +6,11 @@ export const settingSchema = z.object({
     .min(1, 'Title is required')
     .max(50, 'Title must be at most 50 characters'),
   description: z.string().nonempty('Description is required'),
+  phone: z
+    .e164('Phone number must be a valid format (e.g. +123456789)')
+    .optional(),
+  email: z.email('Email must be a valid email address').optional(),
+  address: z.string().optional(),
 });
 
 export type Settings = z.infer<typeof settingSchema>;
