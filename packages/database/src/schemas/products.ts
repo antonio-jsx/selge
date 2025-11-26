@@ -26,6 +26,7 @@ export const products = pgTable('products', {
   categoryId: integer('category_id').references(() => category.id, {
     onDelete: 'set null',
   }),
+  metaData: jsonb('meta_data').$type<Record<string, any>>(),
   createdAt: timestamp('created_at').defaultNow().notNull(),
 });
 

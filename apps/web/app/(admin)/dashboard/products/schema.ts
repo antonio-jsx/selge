@@ -27,6 +27,10 @@ export const productSchema = z.object({
   isActive: z.boolean(),
   isFeatured: z.boolean(),
   categoryId: z.number().optional(),
+  weight: z.number().min(1, 'Weight must be greater than 0'),
+  depth: z.number().min(1, 'Depth must be greater than 0'),
+  width: z.number().min(1, 'Width must be greater than 0'),
+  height: z.number().min(1, 'Height must be greater than 0'),
 });
 
 export type Product = z.infer<typeof productSchema>;

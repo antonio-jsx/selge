@@ -40,7 +40,7 @@ export async function AllProducts({ search }: { search: string }) {
           {item.isActive ? 'Active' : 'Disabled'}
         </Badge>
       </TableCell>
-      <TableCell>
+      <TableCell className="text-right">
         <ButtonTrash id={item.id} title={item.name} section="products" />
       </TableCell>
     </TableRow>

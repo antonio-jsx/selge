@@ -11,8 +11,12 @@ export const addProduct = actionClient
   .use(isAdminMiddleware)
   .metadata({ name: 'add-product' })
   .inputSchema(productSchema)
-  .action(async ({ parsedInput: data }) => {
-    await db.insert(products).values(data);
-    updateTag('featured');
-    updateTag('category');
-  });
+  .action(
+    async ({ parsedInput: { weight, depth, width, height, ...data } }) => {
+      await db
+        .insert(products)
+        .values({ ...data, metaData: { weight, depth, width, height } });
+      updateTag('featured');
+      updateTag('category');
+    }
+  );

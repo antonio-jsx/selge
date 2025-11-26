@@ -52,6 +52,10 @@ export function AddProduct() {
       isActive: true,
       isFeatured: false,
       categoryId: undefined,
+      depth: 0,
+      height: 0,
+      weight: 0,
+      width: 0,
     },
   });
 
@@ -84,6 +88,21 @@ export function AddProduct() {
         </DialogHeader>
 
         <form className="space-y-4" onSubmit={onSubmit}>
+          <div className="flex items-start gap-4">
+            <FormField
+              control={control}
+              name="name"
+              label="Product name"
+              render={(field) => <Input {...field} />}
+            />
+            <FormField
+              control={control}
+              name="sku"
+              label="Product SKU"
+              render={(field) => <Input {...field} />}
+            />
+          </div>
+
           <FormField
             control={control}
             name="categoryId"
@@ -107,20 +126,6 @@ export function AddProduct() {
               </NativeSelect>
             )}
           />
-          <div className="flex items-start gap-4">
-            <FormField
-              control={control}
-              name="name"
-              label="Product name"
-              render={(field) => <Input {...field} />}
-            />
-            <FormField
-              control={control}
-              name="sku"
-              label="Product SKU"
-              render={(field) => <Input {...field} />}
-            />
-          </div>
 
           <FormField
             control={control}
@@ -187,6 +192,78 @@ export function AddProduct() {
               control={control}
               name="stock"
               label="Stock"
+              render={(field) => (
+                <Input
+                  {...field}
+                  type="number"
+                  min={0}
+                  onChange={(e) => {
+                    const value = e.target.value;
+                    field.onChange(value === '' ? undefined : Number(value));
+                  }}
+                />
+              )}
+            />
+          </div>
+
+          <p>Weight and dimensions</p>
+
+          <div className="grid gap-4 rounded-lg border bg-accent/40 p-4 lg:grid-cols-4">
+            <FormField
+              control={control}
+              name="weight"
+              label="Weight"
+              render={(field) => (
+                <Input
+                  {...field}
+                  type="number"
+                  min={0}
+                  onChange={(e) => {
+                    const value = e.target.value;
+                    field.onChange(value === '' ? undefined : Number(value));
+                  }}
+                />
+              )}
+            />
+
+            <FormField
+              control={control}
+              name="depth"
+              label="Depth"
+              render={(field) => (
+                <Input
+                  {...field}
+                  type="number"
+                  min={0}
+                  onChange={(e) => {
+                    const value = e.target.value;
+                    field.onChange(value === '' ? undefined : Number(value));
+                  }}
+                />
+              )}
+            />
+
+            <FormField
+              control={control}
+              name="width"
+              label="Width"
+              render={(field) => (
+                <Input
+                  {...field}
+                  type="number"
+                  min={0}
+                  onChange={(e) => {
+                    const value = e.target.value;
+                    field.onChange(value === '' ? undefined : Number(value));
+                  }}
+                />
+              )}
+            />
+
+            <FormField
+              control={control}
+              name="height"
+              label="Height"
               render={(field) => (
                 <Input
                   {...field}
