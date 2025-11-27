@@ -36,7 +36,7 @@ export function Cart() {
         </Button>
       </SheetTrigger>
 
-      <SheetContent>
+      <SheetContent className="overflow-y-auto">
         <SheetHeader>
           <SheetTitle>Shopping Cart ({totalItems})</SheetTitle>
         </SheetHeader>
