@@ -13,7 +13,11 @@ export function MenuItems({ item }: { readonly item: Menu }) {
 
   return (
     <SidebarMenuItem key={item.title}>
-      <SidebarMenuButton asChild isActive={pathname === item.url}>
+      <SidebarMenuButton
+        asChild
+        isActive={pathname === item.url}
+        tooltip={item.title}
+      >
         <Link href={item.url}>
           <item.icon /> {item.title}
         </Link>

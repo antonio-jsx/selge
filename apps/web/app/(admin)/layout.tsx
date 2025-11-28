@@ -6,8 +6,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <SidebarProvider>
       <AppSidebar />
-      <SidebarInset>
-        <main className="mx-auto w-full max-w-6xl md:p-6">{children}</main>
+      <SidebarInset className="mx-auto w-full max-w-6xl md:p-6">
+        {children}
         <Remove />
       </SidebarInset>
     </SidebarProvider>

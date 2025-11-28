@@ -11,6 +11,7 @@ import {
   SidebarGroupContent,
   SidebarHeader,
   SidebarMenu,
+  SidebarTrigger,
 } from '@selge/ui/components/sidebar';
 import { Suspense } from 'react';
 
@@ -22,10 +23,11 @@ async function Menu() {
 
 export function AppSidebar() {
   return (
-    <Sidebar>
+    <Sidebar collapsible="icon">
       <SidebarHeader>
         <Logo className="size-6 fill-black dark:fill-white" />
       </SidebarHeader>
+      <SidebarTrigger size="icon-sm" className="-right-2.5 absolute top-2" />
       <SidebarContent>
         <SidebarGroup>
           <SidebarGroupContent>
