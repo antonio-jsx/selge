@@ -25,7 +25,7 @@ export const metadata: Metadata = {
 };
 
 export default async function Products({ searchParams }: PageProps) {
-  const { q } = await loadSearchParams(searchParams);
+  const { q, tag } = await loadSearchParams(searchParams);
 
   const categories = getCategory();
 
@@ -53,7 +53,7 @@ export default async function Products({ searchParams }: PageProps) {
           </TableHeader>
           <TableBody>
             <Suspense fallback={<ProductSkeleton />}>
-              <AllProducts search={q} />
+              <AllProducts search={q} tag={tag} />
             </Suspense>
           </TableBody>
         </Table>

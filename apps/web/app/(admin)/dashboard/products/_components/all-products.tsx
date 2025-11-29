@@ -6,8 +6,14 @@ import { TableCell, TableRow } from '@selge/ui/components/table';
 import { cn } from '@selge/ui/lib/utils';
 import { BoxIcon, CircleIcon } from 'lucide-react';
 
-export async function AllProducts({ search }: { search: string }) {
-  const products = await getProducts({ search });
+export async function AllProducts({
+  search,
+  tag,
+}: {
+  search: string;
+  tag: string;
+}) {
+  const products = await getProducts({ search, tag });
 
   if (products.length <= 0) {
     return (

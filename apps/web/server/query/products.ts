@@ -1,24 +1,31 @@
 import 'server-only';
 
-import type { ProductsWithCategory } from '@/lib/types';
+import type { ProductsWithCategory, SearchProducts } from '@/lib/types';
 import { slugify } from '@/lib/utils';
-import { db } from '@selge/database';
-import type { SelectProduct } from '@selge/database/schemas/products';
+import { and, db, eq, getTableColumns, ilike } from '@selge/database';
+import { category } from '@selge/database/schemas/category';
+import { products, type SelectProduct } from '@selge/database/schemas/products';
 
 export async function getProducts({
   search,
-}: {
-  search: string;
-}): Promise<ProductsWithCategory[]> {
-  const result = db.query.products.findMany({
-    with: {
-      category: true,
-    },
-    where:
-      search === ''
-        ? undefined
-        : (products, { ilike }) => ilike(products.name, `%${search}%`),
-  });
+  tag,
+}: SearchProducts): Promise<ProductsWithCategory[]> {
+  const p = getTableColumns(products);
+  const c = getTableColumns(category);
+
+  const result = await db
+    .select({
+      ...p,
+      category: c,
+    })
+    .from(products)
+    .leftJoin(category, eq(products.categoryId, category.id))
+    .where(
+      and(
+        search ? ilike(p.name, `%${search}%`) : undefined,
+        tag ? ilike(c.name, `%${tag}%`) : undefined
+      )
+    );
 
   return result;
 }

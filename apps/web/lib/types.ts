@@ -82,3 +82,8 @@ export interface SettingsContextValue {
 export interface ProductContextValue {
   category: SelectCategory[];
 }
+
+export type SearchProducts = {
+  search: string;
+  tag: string;
+};
