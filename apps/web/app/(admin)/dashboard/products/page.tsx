@@ -2,6 +2,7 @@ import { AddProduct } from '@/app/(admin)/dashboard/products/_components/add-pro
 import { AllProducts } from '@/app/(admin)/dashboard/products/_components/all-products';
 import { Filters } from '@/app/(admin)/dashboard/products/_components/filterts';
 import { ProductSkeleton } from '@/app/(admin)/dashboard/products/_components/product-skeleton';
+import { Search } from '@/app/(admin)/dashboard/products/_components/search';
 import { ProductsProvider } from '@/app/(admin)/dashboard/products/context';
 import { loadSearchParams } from '@/app/(admin)/dashboard/products/searchParams';
 import { getCategory } from '@/server/query/category';
@@ -31,8 +32,9 @@ export default async function Products({ searchParams }: PageProps) {
 
   return (
     <ProductsProvider category={categories}>
-      <section className="mb-6 flex items-center justify-between gap-2">
-        <h1 className="font-bold text-2xl">Products</h1>
+      <section className="mb-6 flex items-center gap-2">
+        <h1 className="mr-auto font-bold text-2xl">Products</h1>
+        <Search />
         <AddProduct />
       </section>
 

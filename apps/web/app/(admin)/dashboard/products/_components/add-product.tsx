@@ -75,7 +75,7 @@ export function AddProduct() {
   return (
     <Dialog open={open} onOpenChange={closeDialog}>
       <DialogTrigger asChild>
-        <Button>
+        <Button variant="secondary">
           <PlusIcon /> Add Product
         </Button>
       </DialogTrigger>
