@@ -2,6 +2,7 @@ import { Banner } from '@/app/(home)/_components/banner';
 import { FeaturedProducts } from '@/app/(home)/_components/featured-products';
 import { getSettings } from '@/server/query/settings';
 import type { SelectSettings } from '@selge/database/schemas/settings';
+import { getTranslations } from '@selge/i18n/server';
 import type { Metadata } from 'next';
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -17,7 +18,9 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-export default function Home() {
+export default async function Home() {
+  const t = await getTranslations('Home');
+
   return (
     <>
       <section className="mx-auto max-w-6xl">
@@ -25,7 +28,7 @@ export default function Home() {
       </section>
 
       <section className="mx-auto max-w-6xl py-6">
-        <h3 className="mb-6 font-bold text-xl">Featured products</h3>
+        <h3 className="mb-6 font-bold text-xl">{t('products')}</h3>
 
         <FeaturedProducts />
       </section>

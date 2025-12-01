@@ -4,6 +4,7 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./*"],
+      "@/app/*": ["./app/[locale]/*"],
       "@selge/ui/*": ["../../packages/ui/src/*"]
     },
     "plugins": [
@@ -14,6 +15,7 @@
   },
   "include": [
     "next-env.d.ts",
+    "i18n-env.d.ts",
     "next.config.ts",
     "**/*.ts",
     "**/*.tsx",

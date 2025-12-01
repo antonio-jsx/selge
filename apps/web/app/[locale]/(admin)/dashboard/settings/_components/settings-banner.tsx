@@ -6,6 +6,7 @@ import { bannerSchema } from '@/app/(admin)/dashboard/settings/schema';
 import Card from '@/components/card';
 import { updateBanner } from '@/server/mutation/update-banner';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { useTranslations } from '@selge/i18n';
 import { Button } from '@selge/ui/components/button';
 import { FormField } from '@selge/ui/components/form-field';
 import { Input } from '@selge/ui/components/input';
@@ -16,6 +17,8 @@ import { useAction } from 'next-safe-action/hooks';
 import { useForm } from 'react-hook-form';
 
 export function SettingsBanner() {
+  const t = useTranslations();
+
   const settings = useSectionSettings('hero', {
     title: '',
     description: '',
@@ -51,20 +54,20 @@ export function SettingsBanner() {
     >
       <div>
         <Card
-          title="Banner Settings"
-          description="Customize your banner settings"
+          title={t('Dashboard.Settings.Hero.title')}
+          description={t('Dashboard.Settings.Hero.subtitle')}
         >
           <div className="space-y-4">
             <FormField
               control={control}
               name="title"
-              label="Title"
+              label={t('Dashboard.Settings.title')}
               render={(field) => <Input {...field} />}
             />
             <FormField
               control={control}
               name="description"
-              label="Description"
+              label={t('Dashboard.Settings.description')}
               render={(field) => <Textarea {...field} />}
             />
 
@@ -82,7 +85,7 @@ export function SettingsBanner() {
             />
 
             <Button type="submit">
-              {isPending ? <Spinner /> : <SaveIcon />} Save
+              {isPending ? <Spinner /> : <SaveIcon />} {t('Button.save')}
             </Button>
           </div>
         </Card>

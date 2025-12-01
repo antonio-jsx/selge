@@ -1,6 +1,7 @@
 'use client';
 
 import { searchParsers } from '../searchParams';
+import { useTranslations } from '@selge/i18n';
 import {
   InputGroup,
   InputGroupAddon,
@@ -10,6 +11,7 @@ import { SearchIcon } from 'lucide-react';
 import { debounce, useQueryStates } from 'nuqs';
 
 export function Search() {
+  const t = useTranslations();
   const [_, setFilters] = useQueryStates(searchParsers, {
     shallow: false,
     limitUrlUpdates: debounce(300),
@@ -18,7 +20,7 @@ export function Search() {
   return (
     <InputGroup className="max-w-3xs">
       <InputGroupInput
-        placeholder="Search..."
+        placeholder={`${t('Search')}...`}
         onChange={(e) => setFilters({ q: e.target.value })}
       />
       <InputGroupAddon>

@@ -8,6 +8,7 @@ import {
 import Card from '@/components/card';
 import { updateSettings } from '@/server/mutation/update-settings';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { useTranslations } from '@selge/i18n';
 import { Button } from '@selge/ui/components/button';
 import { FormField } from '@selge/ui/components/form-field';
 import { Input } from '@selge/ui/components/input';
@@ -18,6 +19,8 @@ import { useAction } from 'next-safe-action/hooks';
 import { useForm } from 'react-hook-form';
 
 export function SettingsPage() {
+  const t = useTranslations();
+
   const settings = useSectionSettings('home', {
     title: '',
     description: '',
@@ -49,36 +52,36 @@ export function SettingsPage() {
 
   return (
     <Card
-      title="Home Page Settings"
-      description="Customize your homepage settings"
+      title={t('Dashboard.Settings.General.title')}
+      description={t('Dashboard.Settings.General.subtitle')}
     >
       <form onSubmit={onSubmit} className="space-y-4">
         <FormField
           control={control}
           name="title"
-          label="Title"
+          label={t('Dashboard.Settings.title')}
           render={(field) => <Input {...field} />}
         />
         <FormField
           control={control}
           name="description"
-          label="Description"
+          label={t('Dashboard.Settings.description')}
           render={(field) => <Textarea {...field} />}
         />
 
-        <p>Contact information</p>
+        <p>{t('Contact')}</p>
 
         <div className="flex items-center gap-4">
           <FormField
             control={control}
             name="phone"
-            label="Phone"
+            label={t('Phone')}
             render={(field) => <Input {...field} />}
           />
           <FormField
             control={control}
             name="email"
-            label="Email"
+            label={t('Email')}
             render={(field) => <Input {...field} />}
           />
         </div>
@@ -86,12 +89,12 @@ export function SettingsPage() {
         <FormField
           control={control}
           name="address"
-          label="Address"
+          label={t('Address')}
           render={(field) => <Textarea {...field} />}
         />
 
         <Button type="submit">
-          {isPending ? <Spinner /> : <SaveIcon />} Save
+          {isPending ? <Spinner /> : <SaveIcon />} {t('Button.save')}
         </Button>
       </form>
     </Card>

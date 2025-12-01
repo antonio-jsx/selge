@@ -2,6 +2,7 @@
 
 import { ItemsCart } from '@/components/items-cart';
 import { useShopping } from '@/store/shopping';
+import { useTranslations } from '@selge/i18n';
 import { Badge } from '@selge/ui/components/badge';
 import { Button } from '@selge/ui/components/button';
 import {
@@ -14,6 +15,8 @@ import {
 import { ShoppingCartIcon } from 'lucide-react';
 
 export function Cart() {
+  const t = useTranslations('Cart');
+
   const totalItems = useShopping((state) =>
     state.cart.reduce((sum, item) => sum + item.quantity, 0)
   );
@@ -38,7 +41,9 @@ export function Cart() {
 
       <SheetContent className="overflow-y-auto">
         <SheetHeader>
-          <SheetTitle>Shopping Cart ({totalItems})</SheetTitle>
+          <SheetTitle>
+            {t('title')} ({totalItems})
+          </SheetTitle>
         </SheetHeader>
 
         <div className="px-4">

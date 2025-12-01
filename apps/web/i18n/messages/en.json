@@ -1,0 +1,103 @@
+{
+  "Home": {
+    "products": "Featured Products"
+  },
+  "Contact": "Información de contacto",
+  "Phone": "Teléfono",
+  "Email": "Correo electrónico",
+  "Address": "Dirección",
+  "Search": "Buscar",
+  "Button": {
+    "save": "Guardar",
+    "cancel": "Cancelar",
+    "continue": "Continuar"
+  },
+  "Delete": {
+    "title": "¿Borrar “probando”?",
+    "subtitle": "¿Seguro que quieres eliminar “probando“? Esta acción no se puede deshacer."
+  },
+  "Cart": {
+    "title": "Shopping Cart",
+    "total": "Total"
+  },
+  "Dashboard": {
+    "Menu": {
+      "category": "Categoría",
+      "products": "Productos",
+      "users": "Usuarios",
+      "orders": "Pedidos",
+      "settings": "Configuración"
+    },
+    "Category": {
+      "title": "Categorías",
+      "Add": {
+        "button": "Agregar categoría",
+        "title": "Nueva Categoría",
+        "subtitle": "Añade una categoría para organizar tus productos.",
+        "Form": {
+          "name": "Nombre de categoría"
+        }
+      }
+    },
+    "Products": {
+      "title": "Productos",
+      "Add": {
+        "button": "Agregar producto",
+        "title": "Nuevo producto",
+        "subtitle": "Añade un nuevo producto a tu catálogo."
+      },
+      "Form": {
+        "name": "",
+        "sku": "",
+        "category": "",
+        "short_desc": "",
+        "description": "",
+        "ph_desc": "ingresa tu descripción",
+        "price": "Precio",
+        "cost": "Costo del precio",
+        "stock": "",
+        "weight_dimensions": "Peso y dimensiones",
+        "weight": "",
+        "depth": "",
+        "width": "",
+        "height": "",
+        "active": "Producto activo",
+        "featured": "Producto destacado"
+      }
+    },
+    "Users": {
+      "title": "Usuarios"
+    },
+    "Orders": {},
+    "Settings": {
+      "title": "Título",
+      "description": "Descripción",
+      "General": {
+        "title": "Configuración de la página de inicio",
+        "subtitle": "Personaliza la configuración de tu página de inicio"
+      },
+      "Hero": {
+        "title": "Configuración de banner",
+        "subtitle": "Personaliza la configuración de tu banner"
+      },
+      "Tax": {
+        "title": "Configuración de impuestos",
+        "subtitle": "Gestiona los impuestos aplicables a tus productos",
+        "Form": {
+          "name": "Nombre del impuesto",
+          "rate": "Tasa impositiva predeterminada"
+        }
+      },
+      "Shipping": {
+        "title": "Configuración de envío",
+        "subtitle": "Administra las opciones de envío de tu tienda",
+        "Form": {
+          "time": "Tiempo de entrega",
+          "free": "Envío gratis",
+          "free_msg": "Ofrece envío gratuito en todos los pedidos.",
+          "amount": "Cantidad mínima para envío gratuito"
+        }
+      }
+    }
+  }
+}

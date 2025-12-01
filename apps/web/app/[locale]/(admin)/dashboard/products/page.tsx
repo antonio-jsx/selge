@@ -6,6 +6,7 @@ import { Search } from '@/app/(admin)/dashboard/products/_components/search';
 import { ProductsProvider } from '@/app/(admin)/dashboard/products/context';
 import { loadSearchParams } from '@/app/(admin)/dashboard/products/searchParams';
 import { getCategory } from '@/server/query/category';
+import { getTranslations } from '@selge/i18n/server';
 import {
   Table,
   TableBody,
@@ -26,6 +27,8 @@ export const metadata: Metadata = {
 };
 
 export default async function Products({ searchParams }: PageProps) {
+  const t = await getTranslations('Dashboard.Products');
+
   const { q, tag } = await loadSearchParams(searchParams);
 
   const categories = getCategory();
@@ -33,7 +36,7 @@ export default async function Products({ searchParams }: PageProps) {
   return (
     <ProductsProvider category={categories}>
       <section className="mb-6 flex items-center gap-2">
-        <h1 className="mr-auto font-bold text-2xl">Products</h1>
+        <h1 className="mr-auto font-bold text-2xl">{t('title')}</h1>
         <Search />
         <AddProduct />
       </section>

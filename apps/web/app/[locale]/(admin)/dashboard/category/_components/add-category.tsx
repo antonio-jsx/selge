@@ -3,6 +3,7 @@
 import { categorySchema } from '@/app/(admin)/dashboard/category/schema';
 import { addCategory } from '@/server/mutation/add-category';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { useTranslations } from '@selge/i18n';
 import { Button } from '@selge/ui/components/button';
 import {
   Dialog,
@@ -23,6 +24,8 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 
 export function AddCategory() {
+  const t = useTranslations();
+
   const [open, setOpen] = useState<boolean>(false);
 
   const { control, handleSubmit, reset } = useForm({
@@ -48,14 +51,14 @@ export function AddCategory() {
     <Dialog open={open} onOpenChange={closeDialog}>
       <DialogTrigger asChild>
         <Button>
-          <PlusIcon /> Add Category
+          <PlusIcon /> {t('Dashboard.Category.Add.button')}
         </Button>
       </DialogTrigger>
       <DialogContent>
         <DialogHeader>
-          <DialogTitle>New Category</DialogTitle>
+          <DialogTitle>{t('Dashboard.Category.Add.title')}</DialogTitle>
           <DialogDescription>
-            Add a category to organize your products.
+            {t('Dashboard.Category.Add.subtitle')}
           </DialogDescription>
         </DialogHeader>
 
@@ -63,15 +66,17 @@ export function AddCategory() {
           <FormField
             control={control}
             name="name"
-            label="Category name"
+            label={t('Dashboard.Category.Add.Form.name')}
             render={(field) => <Input {...field} />}
           />
 
           <DialogFooter>
             <DialogClose asChild>
-              <Button variant="outline">Cancel</Button>
+              <Button variant="outline">{t('Button.cancel')}</Button>
             </DialogClose>
-            <Button type="submit">{isPending && <Spinner />} Save</Button>
+            <Button type="submit">
+              {isPending && <Spinner />} {t('Button.save')}
+            </Button>
           </DialogFooter>
         </form>
       </DialogContent>

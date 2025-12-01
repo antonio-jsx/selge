@@ -4,6 +4,7 @@ import { useProductContext } from '@/app/(admin)/dashboard/products/context';
 import { productSchema } from '@/app/(admin)/dashboard/products/schema';
 import { addProduct } from '@/server/mutation/add-product';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { useTranslations } from '@selge/i18n';
 import { Button } from '@selge/ui/components/button';
 import { Checkbox } from '@selge/ui/components/checkbox';
 import {
@@ -35,6 +36,8 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 
 export function AddProduct() {
+  const t = useTranslations();
+
   const { category: allCategories } = useProductContext();
 
   const [open, setOpen] = useState<boolean>(false);
@@ -76,14 +79,14 @@ export function AddProduct() {
     <Dialog open={open} onOpenChange={closeDialog}>
       <DialogTrigger asChild>
         <Button variant="secondary">
-          <PlusIcon /> Add Product
+          <PlusIcon /> {t('Dashboard.Products.Add.button')}
         </Button>
       </DialogTrigger>
       <DialogContent className="max-h-[90vh] min-w-2xl overflow-y-auto">
         <DialogHeader>
-          <DialogTitle>New Product</DialogTitle>
+          <DialogTitle>{t('Dashboard.Products.Add.title')}</DialogTitle>
           <DialogDescription>
-            Add a new product to your catalog.
+            {t('Dashboard.Products.Add.subtitle')}
           </DialogDescription>
         </DialogHeader>
 
@@ -92,13 +95,13 @@ export function AddProduct() {
             <FormField
               control={control}
               name="name"
-              label="Product name"
+              label={t('Dashboard.Products.Form.name')}
               render={(field) => <Input {...field} />}
             />
             <FormField
               control={control}
               name="sku"
-              label="Product SKU"
+              label={t('Dashboard.Products.Form.sku')}
               render={(field) => <Input {...field} />}
             />
           </div>
@@ -106,7 +109,7 @@ export function AddProduct() {
           <FormField
             control={control}
             name="categoryId"
-            label="Category"
+            label={t('Dashboard.Products.Form.category')}
             render={(field) => (
               <NativeSelect
                 {...field}
@@ -130,19 +133,19 @@ export function AddProduct() {
           <FormField
             control={control}
             name="shortDescription"
-            label="Short description"
+            label={t('Dashboard.Products.Form.short_desc')}
             render={(field) => <Input {...field} />}
           />
 
           <FormField
             control={control}
             name="description"
-            label="Description"
+            label={t('Dashboard.Products.Form.description')}
             render={(field) => (
               <InputGroup>
                 <InputGroupTextarea
                   {...field}
-                  placeholder="Enter your description"
+                  placeholder={t('Dashboard.Products.Form.ph_desc')}
                 />
                 <InputGroupAddon align="block-end">
                   <InputGroupText className="text-muted-foreground text-xs">
@@ -157,7 +160,7 @@ export function AddProduct() {
             <FormField
               control={control}
               name="price"
-              label="Price"
+              label={t('Dashboard.Products.Form.price')}
               render={(field) => (
                 <Input
                   {...field}
@@ -174,7 +177,7 @@ export function AddProduct() {
             <FormField
               control={control}
               name="costPrice"
-              label="Price cost"
+              label={t('Dashboard.Products.Form.cost')}
               render={(field) => (
                 <Input
                   {...field}
@@ -191,7 +194,7 @@ export function AddProduct() {
             <FormField
               control={control}
               name="stock"
-              label="Stock"
+              label={t('Dashboard.Products.Form.stock')}
               render={(field) => (
                 <Input
                   {...field}
@@ -206,13 +209,13 @@ export function AddProduct() {
             />
           </div>
 
-          <p>Weight and dimensions</p>
+          <p>{t('Dashboard.Products.Form.weight_dimensions')}</p>
 
           <div className="grid gap-4 rounded-lg border bg-accent/40 p-4 lg:grid-cols-4">
             <FormField
               control={control}
               name="weight"
-              label="Weight"
+              label={t('Dashboard.Products.Form.weight')}
               render={(field) => (
                 <Input
                   {...field}
@@ -229,7 +232,7 @@ export function AddProduct() {
             <FormField
               control={control}
               name="depth"
-              label="Depth"
+              label={t('Dashboard.Products.Form.depth')}
               render={(field) => (
                 <Input
                   {...field}
@@ -246,7 +249,7 @@ export function AddProduct() {
             <FormField
               control={control}
               name="width"
-              label="Width"
+              label={t('Dashboard.Products.Form.width')}
               render={(field) => (
                 <Input
                   {...field}
@@ -263,7 +266,7 @@ export function AddProduct() {
             <FormField
               control={control}
               name="height"
-              label="Height"
+              label={t('Dashboard.Products.Form.height')}
               render={(field) => (
                 <Input
                   {...field}
@@ -292,7 +295,7 @@ export function AddProduct() {
                     name={field.name}
                     onBlur={field.onBlur}
                   />
-                  Active product
+                  {t('Dashboard.Products.Form.active')}
                 </label>
               )}
             />
@@ -310,7 +313,7 @@ export function AddProduct() {
                     name={field.name}
                     onBlur={field.onBlur}
                   />
-                  Featured product
+                  {t('Dashboard.Products.Form.featured')}
                 </label>
               )}
             />
@@ -318,9 +321,11 @@ export function AddProduct() {
 
           <DialogFooter>
             <DialogClose asChild>
-              <Button variant="outline">Cancel</Button>
+              <Button variant="outline">{t('Button.cancel')}</Button>
             </DialogClose>
-            <Button type="submit">{isPending && <Spinner />} Save</Button>
+            <Button type="submit">
+              {isPending && <Spinner />} {t('Button.save')}
+            </Button>
           </DialogFooter>
         </form>
       </DialogContent>

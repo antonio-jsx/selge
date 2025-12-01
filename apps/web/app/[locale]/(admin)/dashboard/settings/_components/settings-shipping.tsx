@@ -5,6 +5,7 @@ import Card from '@/components/card';
 import { updateShipping } from '@/server/mutation/update-shipping';
 import { useSectionSettings } from '../hooks';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { useTranslations } from '@selge/i18n';
 import { Button } from '@selge/ui/components/button';
 import { FormField } from '@selge/ui/components/form-field';
 import { Input } from '@selge/ui/components/input';
@@ -22,6 +23,8 @@ import { useAction } from 'next-safe-action/hooks';
 import { useForm } from 'react-hook-form';
 
 export function SettingsShipping() {
+  const t = useTranslations();
+
   const settings = useSectionSettings('shipping', {
     title: '',
     metaData: { free: false, limit: 0 },
@@ -49,21 +52,23 @@ export function SettingsShipping() {
 
   return (
     <Card
-      title="Shipping settings"
-      description="Manage your store's shipping options"
+      title={t('Dashboard.Settings.Shipping.title')}
+      description={t('Dashboard.Settings.Shipping.subtitle')}
     >
       <form className="space-y-4" onSubmit={onSubmit}>
         <FormField
           control={control}
           name="title"
-          label="Delivery time"
+          label={t('Dashboard.Settings.Shipping.Form.time')}
           render={(field) => <Input {...field} />}
         />
 
         <Item variant="outline">
           <ItemContent>
-            <ItemTitle>Free shipping</ItemTitle>
-            <ItemDescription>Offer free shipping on all orders</ItemDescription>
+            <ItemTitle>{t('Dashboard.Settings.Shipping.Form.free')}</ItemTitle>
+            <ItemDescription>
+              {t('Dashboard.Settings.Shipping.Form.free_msg')}
+            </ItemDescription>
           </ItemContent>
           <ItemActions className="w-8">
             <FormField
@@ -83,7 +88,7 @@ export function SettingsShipping() {
         <FormField
           control={control}
           name="limit"
-          label="Minimum amount for free shipping"
+          label={t('Dashboard.Settings.Shipping.Form.amount')}
           render={(field) => (
             <Input
               {...field}
@@ -98,7 +103,7 @@ export function SettingsShipping() {
         />
 
         <Button type="submit">
-          {isPending ? <Spinner /> : <SaveIcon />} Save
+          {isPending ? <Spinner /> : <SaveIcon />} {t('Button.save')}
         </Button>
       </form>
     </Card>

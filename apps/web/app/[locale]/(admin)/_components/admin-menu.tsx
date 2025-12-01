@@ -1,7 +1,7 @@
 'use client';
 
+import { MenuItems } from '@/app/(admin)/_components/menu-items';
 import type { Menu } from '@/lib/types';
-import { MenuItems } from './menu-items';
 import {
   BoxIcon,
   FileTextIcon,

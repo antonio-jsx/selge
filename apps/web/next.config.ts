@@ -1,3 +1,4 @@
+import createNextIntlPlugin from '@selge/i18n/plugin';
 import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
@@ -5,4 +6,8 @@ const nextConfig: NextConfig = {
   cacheComponents: true,
 };
 
-export default nextConfig;
+const withNextIntl = createNextIntlPlugin({
+  requestConfig: './i18n/request.ts',
+});
+
+export default withNextIntl(nextConfig);
