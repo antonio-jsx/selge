@@ -4,6 +4,7 @@ import { routing } from '@selge/i18n/routing';
 import { Geist, Geist_Mono } from 'next/font/google';
 import { notFound } from 'next/navigation';
 import '../style.css';
+import { setRequestLocale } from '@selge/i18n/server';
 
 const fontSans = Geist({
   subsets: ['latin'],
@@ -27,9 +28,12 @@ export default async function RootLayout({
   params: Promise<{ locale: string }>;
 }>) {
   const { locale } = await params;
+
   if (!hasLocale(routing.locales, locale)) {
     notFound();
   }
+
+  setRequestLocale(locale);
 
   return (
     <html lang={locale} suppressHydrationWarning>

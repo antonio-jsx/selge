@@ -10,7 +10,7 @@ const menuItems = [
   { name: 'FAQs', href: '#' },
 ];
 
-export default function Layout({ children }: { children: React.ReactNode }) {
+export default function Layout(props: LayoutProps<'/[locale]'>) {
   return (
     <>
       <header>
@@ -23,8 +23,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
               <div className="hidden size-fit lg:block">
                 <ul className="flex gap-8 text-sm">
-                  {menuItems.map((item, index) => (
-                    <li key={index}>
+                  {menuItems.map((item) => (
+                    <li key={item.name}>
                       <Link
                         href={item.href}
                         className="block text-muted-foreground duration-150 hover:text-accent-foreground"
@@ -45,7 +45,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         </nav>
       </header>
 
-      <main className="pt-18">{children}</main>
+      <main className="pt-18">{props.children}</main>
     </>
   );
 }

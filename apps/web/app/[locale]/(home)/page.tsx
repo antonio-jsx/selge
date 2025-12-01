@@ -2,8 +2,10 @@ import { Banner } from '@/app/(home)/_components/banner';
 import { FeaturedProducts } from '@/app/(home)/_components/featured-products';
 import { getSettings } from '@/server/query/settings';
 import type { SelectSettings } from '@selge/database/schemas/settings';
-import { getTranslations } from '@selge/i18n/server';
+import { type Locale, useTranslations } from '@selge/i18n';
+import { setRequestLocale } from '@selge/i18n/server';
 import type { Metadata } from 'next';
+import { use } from 'react';
 
 export async function generateMetadata(): Promise<Metadata> {
   const settings = await getSettings();
@@ -18,8 +20,12 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-export default async function Home() {
-  const t = await getTranslations('Home');
+export default function Home(props: PageProps<'/[locale]'>) {
+  const { locale } = use(props.params);
+
+  setRequestLocale(locale as Locale);
+
+  const t = useTranslations('Home');
 
   return (
     <>
