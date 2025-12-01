@@ -2,6 +2,8 @@
 
 import { useProductContext } from '@/app/(admin)/dashboard/products/context';
 import { productSchema } from '@/app/(admin)/dashboard/products/schema';
+import { Cancel } from '@/components/cancel';
+import { Save } from '@/components/save';
 import { addProduct } from '@/server/mutation/add-product';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useTranslations } from '@selge/i18n';
@@ -29,14 +31,13 @@ import {
   NativeSelect,
   NativeSelectOption,
 } from '@selge/ui/components/native-select';
-import { Spinner } from '@selge/ui/components/spinner';
 import { PlusIcon } from 'lucide-react';
 import { useAction } from 'next-safe-action/hooks';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 
 export function AddProduct() {
-  const t = useTranslations();
+  const t = useTranslations('Dashboard.Products');
 
   const { category: allCategories } = useProductContext();
 
@@ -79,15 +80,13 @@ export function AddProduct() {
     <Dialog open={open} onOpenChange={closeDialog}>
       <DialogTrigger asChild>
         <Button variant="secondary">
-          <PlusIcon /> {t('Dashboard.Products.Add.button')}
+          <PlusIcon /> {t('Add.button')}
         </Button>
       </DialogTrigger>
       <DialogContent className="max-h-[90vh] min-w-2xl overflow-y-auto">
         <DialogHeader>
-          <DialogTitle>{t('Dashboard.Products.Add.title')}</DialogTitle>
-          <DialogDescription>
-            {t('Dashboard.Products.Add.subtitle')}
-          </DialogDescription>
+          <DialogTitle>{t('Add.title')}</DialogTitle>
+          <DialogDescription>{t('Add.subtitle')}</DialogDescription>
         </DialogHeader>
 
         <form className="space-y-4" onSubmit={onSubmit}>
@@ -95,13 +94,13 @@ export function AddProduct() {
             <FormField
               control={control}
               name="name"
-              label={t('Dashboard.Products.Form.name')}
+              label={t('Form.name')}
               render={(field) => <Input {...field} />}
             />
             <FormField
               control={control}
               name="sku"
-              label={t('Dashboard.Products.Form.sku')}
+              label={t('Form.sku')}
               render={(field) => <Input {...field} />}
             />
           </div>
@@ -109,7 +108,7 @@ export function AddProduct() {
           <FormField
             control={control}
             name="categoryId"
-            label={t('Dashboard.Products.Form.category')}
+            label={t('Form.category')}
             render={(field) => (
               <NativeSelect
                 {...field}
@@ -133,19 +132,19 @@ export function AddProduct() {
           <FormField
             control={control}
             name="shortDescription"
-            label={t('Dashboard.Products.Form.short_desc')}
+            label={t('Form.short_desc')}
             render={(field) => <Input {...field} />}
           />
 
           <FormField
             control={control}
             name="description"
-            label={t('Dashboard.Products.Form.description')}
+            label={t('Form.description')}
             render={(field) => (
               <InputGroup>
                 <InputGroupTextarea
                   {...field}
-                  placeholder={t('Dashboard.Products.Form.ph_desc')}
+                  placeholder={t('Form.ph_desc')}
                 />
                 <InputGroupAddon align="block-end">
                   <InputGroupText className="text-muted-foreground text-xs">
@@ -160,7 +159,7 @@ export function AddProduct() {
             <FormField
               control={control}
               name="price"
-              label={t('Dashboard.Products.Form.price')}
+              label={t('Form.price')}
               render={(field) => (
                 <Input
                   {...field}
@@ -177,7 +176,7 @@ export function AddProduct() {
             <FormField
               control={control}
               name="costPrice"
-              label={t('Dashboard.Products.Form.cost')}
+              label={t('Form.cost')}
               render={(field) => (
                 <Input
                   {...field}
@@ -194,7 +193,7 @@ export function AddProduct() {
             <FormField
               control={control}
               name="stock"
-              label={t('Dashboard.Products.Form.stock')}
+              label={t('Form.stock')}
               render={(field) => (
                 <Input
                   {...field}
@@ -209,13 +208,13 @@ export function AddProduct() {
             />
           </div>
 
-          <p>{t('Dashboard.Products.Form.weight_dimensions')}</p>
+          <p>{t('Form.weight_dimensions')}</p>
 
           <div className="grid gap-4 rounded-lg border bg-accent/40 p-4 lg:grid-cols-4">
             <FormField
               control={control}
               name="weight"
-              label={t('Dashboard.Products.Form.weight')}
+              label={t('Form.weight')}
               render={(field) => (
                 <Input
                   {...field}
@@ -232,7 +231,7 @@ export function AddProduct() {
             <FormField
               control={control}
               name="depth"
-              label={t('Dashboard.Products.Form.depth')}
+              label={t('Form.depth')}
               render={(field) => (
                 <Input
                   {...field}
@@ -249,7 +248,7 @@ export function AddProduct() {
             <FormField
               control={control}
               name="width"
-              label={t('Dashboard.Products.Form.width')}
+              label={t('Form.width')}
               render={(field) => (
                 <Input
                   {...field}
@@ -266,7 +265,7 @@ export function AddProduct() {
             <FormField
               control={control}
               name="height"
-              label={t('Dashboard.Products.Form.height')}
+              label={t('Form.height')}
               render={(field) => (
                 <Input
                   {...field}
@@ -295,7 +294,7 @@ export function AddProduct() {
                     name={field.name}
                     onBlur={field.onBlur}
                   />
-                  {t('Dashboard.Products.Form.active')}
+                  {t('Form.active')}
                 </label>
               )}
             />
@@ -313,7 +312,7 @@ export function AddProduct() {
                     name={field.name}
                     onBlur={field.onBlur}
                   />
-                  {t('Dashboard.Products.Form.featured')}
+                  {t('Form.featured')}
                 </label>
               )}
             />
@@ -321,11 +320,9 @@ export function AddProduct() {
 
           <DialogFooter>
             <DialogClose asChild>
-              <Button variant="outline">{t('Button.cancel')}</Button>
+              <Cancel />
             </DialogClose>
-            <Button type="submit">
-              {isPending && <Spinner />} {t('Button.save')}
-            </Button>
+            <Save state={isPending} />
           </DialogFooter>
         </form>
       </DialogContent>

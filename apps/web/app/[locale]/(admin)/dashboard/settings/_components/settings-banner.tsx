@@ -4,20 +4,18 @@ import { BannerPreview } from '@/app/(admin)/dashboard/settings/_components/bann
 import { useSectionSettings } from '@/app/(admin)/dashboard/settings/hooks';
 import { bannerSchema } from '@/app/(admin)/dashboard/settings/schema';
 import Card from '@/components/card';
+import { Save } from '@/components/save';
 import { updateBanner } from '@/server/mutation/update-banner';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useTranslations } from '@selge/i18n';
-import { Button } from '@selge/ui/components/button';
 import { FormField } from '@selge/ui/components/form-field';
 import { Input } from '@selge/ui/components/input';
-import { Spinner } from '@selge/ui/components/spinner';
 import { Textarea } from '@selge/ui/components/textarea';
-import { SaveIcon } from 'lucide-react';
 import { useAction } from 'next-safe-action/hooks';
 import { useForm } from 'react-hook-form';
 
 export function SettingsBanner() {
-  const t = useTranslations();
+  const t = useTranslations('Dashboard.Settings');
 
   const settings = useSectionSettings('hero', {
     title: '',
@@ -53,21 +51,18 @@ export function SettingsBanner() {
       onSubmit={onSubmit}
     >
       <div>
-        <Card
-          title={t('Dashboard.Settings.Hero.title')}
-          description={t('Dashboard.Settings.Hero.subtitle')}
-        >
+        <Card title={t('Hero.title')} description={t('Hero.subtitle')}>
           <div className="space-y-4">
             <FormField
               control={control}
               name="title"
-              label={t('Dashboard.Settings.title')}
+              label={t('title')}
               render={(field) => <Input {...field} />}
             />
             <FormField
               control={control}
               name="description"
-              label={t('Dashboard.Settings.description')}
+              label={t('description')}
               render={(field) => <Textarea {...field} />}
             />
 
@@ -84,9 +79,7 @@ export function SettingsBanner() {
               render={(field) => <Input {...field} />}
             />
 
-            <Button type="submit">
-              {isPending ? <Spinner /> : <SaveIcon />} {t('Button.save')}
-            </Button>
+            <Save state={isPending} />
           </div>
         </Card>
       </div>

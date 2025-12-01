@@ -10,11 +10,11 @@
   "Button": {
     "save": "Guardar",
     "cancel": "Cancelar",
-    "continue": "Continuar"
+    "continue": "Confirmar"
   },
   "Delete": {
-    "title": "¿Borrar “probando”?",
-    "subtitle": "¿Seguro que quieres eliminar “probando“? Esta acción no se puede deshacer."
+    "title": "¿Borrar “{name}”?",
+    "subtitle": "¿Seguro que quieres eliminar “{name}“? Esta acción no se puede deshacer."
   },
   "Cart": {
     "title": "Shopping Cart",

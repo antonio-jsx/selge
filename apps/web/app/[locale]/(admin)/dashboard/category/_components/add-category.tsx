@@ -1,6 +1,8 @@
 'use client';
 
 import { categorySchema } from '@/app/(admin)/dashboard/category/schema';
+import { Cancel } from '@/components/cancel';
+import { Save } from '@/components/save';
 import { addCategory } from '@/server/mutation/add-category';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useTranslations } from '@selge/i18n';
@@ -17,14 +19,13 @@ import {
 } from '@selge/ui/components/dialog';
 import { FormField } from '@selge/ui/components/form-field';
 import { Input } from '@selge/ui/components/input';
-import { Spinner } from '@selge/ui/components/spinner';
 import { PlusIcon } from 'lucide-react';
 import { useAction } from 'next-safe-action/hooks';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 
 export function AddCategory() {
-  const t = useTranslations();
+  const t = useTranslations('Dashboard.Category.Add');
 
   const [open, setOpen] = useState<boolean>(false);
 
@@ -51,32 +52,28 @@ export function AddCategory() {
     <Dialog open={open} onOpenChange={closeDialog}>
       <DialogTrigger asChild>
         <Button>
-          <PlusIcon /> {t('Dashboard.Category.Add.button')}
+          <PlusIcon /> {t('button')}
         </Button>
       </DialogTrigger>
       <DialogContent>
         <DialogHeader>
-          <DialogTitle>{t('Dashboard.Category.Add.title')}</DialogTitle>
-          <DialogDescription>
-            {t('Dashboard.Category.Add.subtitle')}
-          </DialogDescription>
+          <DialogTitle>{t('title')}</DialogTitle>
+          <DialogDescription>{t('subtitle')}</DialogDescription>
         </DialogHeader>
 
         <form className="space-y-4" onSubmit={onSubmit}>
           <FormField
             control={control}
             name="name"
-            label={t('Dashboard.Category.Add.Form.name')}
+            label={t('Form.name')}
             render={(field) => <Input {...field} />}
           />
 
           <DialogFooter>
             <DialogClose asChild>
-              <Button variant="outline">{t('Button.cancel')}</Button>
+              <Cancel />
             </DialogClose>
-            <Button type="submit">
-              {isPending && <Spinner />} {t('Button.save')}
-            </Button>
+            <Save state={isPending} />
           </DialogFooter>
         </form>
       </DialogContent>

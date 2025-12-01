@@ -6,15 +6,13 @@ import {
   settingSchema,
 } from '@/app/(admin)/dashboard/settings/schema';
 import Card from '@/components/card';
+import { Save } from '@/components/save';
 import { updateSettings } from '@/server/mutation/update-settings';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useTranslations } from '@selge/i18n';
-import { Button } from '@selge/ui/components/button';
 import { FormField } from '@selge/ui/components/form-field';
 import { Input } from '@selge/ui/components/input';
-import { Spinner } from '@selge/ui/components/spinner';
 import { Textarea } from '@selge/ui/components/textarea';
-import { SaveIcon } from 'lucide-react';
 import { useAction } from 'next-safe-action/hooks';
 import { useForm } from 'react-hook-form';
 
@@ -93,9 +91,7 @@ export function SettingsPage() {
           render={(field) => <Textarea {...field} />}
         />
 
-        <Button type="submit">
-          {isPending ? <Spinner /> : <SaveIcon />} {t('Button.save')}
-        </Button>
+        <Save state={isPending} />
       </form>
     </Card>
   );

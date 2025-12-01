@@ -3,19 +3,17 @@
 import { useSectionSettings } from '@/app/(admin)/dashboard/settings/hooks';
 import { taxesSchema } from '@/app/(admin)/dashboard/settings/schema';
 import Card from '@/components/card';
+import { Save } from '@/components/save';
 import { updateTax } from '@/server/mutation/update-tax';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useTranslations } from '@selge/i18n';
-import { Button } from '@selge/ui/components/button';
 import { FormField } from '@selge/ui/components/form-field';
 import { Input } from '@selge/ui/components/input';
-import { Spinner } from '@selge/ui/components/spinner';
-import { SaveIcon } from 'lucide-react';
 import { useAction } from 'next-safe-action/hooks';
 import { useForm } from 'react-hook-form';
 
 export function SettingsTaxes() {
-  const t = useTranslations();
+  const t = useTranslations('Dashboard.Settings');
 
   const settings = useSectionSettings('taxes', {
     title: '',
@@ -45,29 +43,26 @@ export function SettingsTaxes() {
   });
 
   return (
-    <Card
-      title={t('Dashboard.Settings.Tax.title')}
-      description={t('Dashboard.Settings.Tax.subtitle')}
-    >
+    <Card title={t('Tax.title')} description={t('Tax.subtitle')}>
       <form className="space-y-4" onSubmit={onSubmit}>
         <FormField
           control={control}
           name="title"
-          label={t('Dashboard.Settings.Tax.Form.name')}
+          label={t('Tax.Form.name')}
           render={(field) => <Input {...field} />}
         />
 
         <FormField
           control={control}
           name="description"
-          label={t('Dashboard.Settings.description')}
+          label={t('description')}
           render={(field) => <Input {...field} />}
         />
 
         <FormField
           control={control}
           name="taxValue"
-          label={t('Dashboard.Settings.Tax.Form.rate')}
+          label={t('Tax.Form.rate')}
           render={(field) => (
             <Input
               {...field}
@@ -81,9 +76,7 @@ export function SettingsTaxes() {
           )}
         />
 
-        <Button type="submit">
-          {isPending ? <Spinner /> : <SaveIcon />} {t('Button.save')}
-        </Button>
+        <Save state={isPending} />
       </form>
     </Card>
   );

@@ -1,7 +1,9 @@
 'use client';
 
+import { Cancel } from '@/components/cancel';
 import { removeAction } from '@/server/mutation/remove';
 import { useRemove } from '@/store/remove';
+import { useTranslations } from '@selge/i18n';
 import {
   AlertDialog,
   AlertDialogAction,
@@ -16,6 +18,8 @@ import { Spinner } from '@selge/ui/components/spinner';
 import { useAction } from 'next-safe-action/hooks';
 
 export function Remove() {
+  const t = useTranslations('Delete');
+
   const { id, section, title, modal, closeModal } = useRemove();
 
   const { executeAsync, isPending } = useAction(removeAction);
@@ -28,14 +32,15 @@ export function Remove() {
     <AlertDialog open={modal} onOpenChange={closeModal}>
       <AlertDialogContent>
         <AlertDialogHeader>
-          <AlertDialogTitle>Delete “{title}“?</AlertDialogTitle>
+          <AlertDialogTitle>{t('title', { name: title })}</AlertDialogTitle>
           <AlertDialogDescription>
-            Are you sure you want to delete <strong>“{title}”</strong>? This
-            action cannot be undone.
+            {t('subtitle', { name: title })}
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>
-          <AlertDialogCancel disabled={isPending}>Cancel</AlertDialogCancel>
+          <AlertDialogCancel disabled={isPending} asChild>
+            <Cancel />
+          </AlertDialogCancel>
           <AlertDialogAction disabled={isPending} onClick={handleRemove}>
             {isPending && <Spinner />} Continue
           </AlertDialogAction>
