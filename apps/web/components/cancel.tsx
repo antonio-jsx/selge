@@ -1,11 +1,14 @@
 import { useTranslations } from '@selge/i18n';
 import { Button } from '@selge/ui/components/button';
+import type { ComponentProps } from 'react';
 
-export function Cancel() {
+type CancelProps = ComponentProps<typeof Button>;
+
+export function Cancel(props: CancelProps) {
   const t = useTranslations('Button');
 
   return (
-    <Button type="button" variant="outline">
+    <Button type="button" variant="outline" {...props}>
       {t('cancel')}
     </Button>
   );
