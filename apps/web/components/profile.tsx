@@ -2,6 +2,7 @@
 
 import { getInitials } from '@/lib/utils';
 import { signOut, useSession } from '@selge/auth/client';
+import { useTranslations } from '@selge/i18n';
 import {
   Avatar,
   AvatarFallback,
@@ -35,6 +36,8 @@ function ViewName({ name, email }: { name: string; email: string }) {
 }
 
 export function Profile({ display = false }: { display?: boolean }) {
+  const t = useTranslations('Profile');
+
   const { data, error, isPending } = useSession();
   const router = useRouter();
 
@@ -76,11 +79,11 @@ export function Profile({ display = false }: { display?: boolean }) {
         <DropdownMenuSeparator />
         <DropdownMenuItem asChild>
           <Link href="/dashboard">
-            <UserIcon /> My account
+            <UserIcon /> {t('account')}
           </Link>
         </DropdownMenuItem>
         <DropdownMenuItem onSelect={logout}>
-          <LogOutIcon /> Logout
+          <LogOutIcon /> {t('logout')}
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>

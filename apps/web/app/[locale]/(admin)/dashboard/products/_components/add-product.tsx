@@ -118,7 +118,7 @@ export function AddProduct() {
                 }}
               >
                 <NativeSelectOption value="">
-                  Select category
+                  {t('Form.sel_category')}
                 </NativeSelectOption>
                 {allCategories.map((item) => (
                   <NativeSelectOption value={item.id} key={item.id}>

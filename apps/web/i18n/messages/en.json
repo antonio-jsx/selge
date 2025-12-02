@@ -1,112 +1,117 @@
 {
-  "Home": {
-    "products": "Featured Products"
+  "Profile": {
+    "account": "My account",
+    "logout": "Log out"
   },
-  "Contact": "Información de contacto",
-  "Phone": "Teléfono",
-  "Email": "Correo electrónico",
-  "Address": "Dirección",
-  "Search": "Buscar",
+  "Contact": "Contact information",
+  "Phone": "Phone",
+  "Email": "Email",
+  "Address": "Address",
+  "Search": "Search",
   "Button": {
-    "save": "Guardar",
-    "cancel": "Cancelar",
-    "continue": "Confirmar"
+    "save": "Save",
+    "cancel": "Cancel",
+    "continue": "Confirm"
   },
   "Delete": {
-    "title": "¿Borrar “{name}”?",
-    "subtitle": "¿Seguro que quieres eliminar “{name}“? Esta acción no se puede deshacer."
+    "title": "Delete “{name}”?",
+    "subtitle": "Are you sure you want to delete “{name}“? This action cannot be undone."
   },
   "Cart": {
-    "title": "Productos en el carro",
+    "title": "Products in the cart",
     "total": "Total",
-    "button": "Agregar",
-    "empty_title": "Tu carrito está vacío",
-    "empty_subtitle": "Parece que aún no has añadido nada.",
-    "msg_title": "Producto agregado al carrito",
-    "msg_desc": "Puede ver su carrito para proceder al pago."
+    "button": "Add to cart",
+    "empty_title": "Your cart is empty",
+    "empty_subtitle": "It looks like you haven't added anything yet.",
+    "msg_title": "Product added to cart",
+    "msg_desc": "You can view your cart to proceed to checkout."
+  },
+  "Home": {
+    "products": "Featured products"
   },
   "Product": {
-    "information": "Información del producto",
-    "review": "Reseñas y valoraciones de clientes",
-    "no_found": "Producto no encontrado",
-    "no_found_desc": "El producto que buscas no existe o fue eliminado."
+    "information": "Product information",
+    "review": "Customer reviews and ratings",
+    "no_found": "Product not found",
+    "no_found_desc": "The product you are looking for does not exist or was removed."
   },
   "Dashboard": {
     "Menu": {
-      "category": "Categoría",
-      "products": "Productos",
-      "users": "Usuarios",
-      "orders": "Pedidos",
-      "settings": "Configuración"
+      "category": "Category",
+      "products": "Products",
+      "users": "Users",
+      "orders": "Orders",
+      "settings": "Settings"
     },
     "Category": {
-      "title": "Categorías",
+      "title": "Categories",
       "Add": {
-        "button": "Agregar categoría",
-        "title": "Nueva Categoría",
-        "subtitle": "Añade una categoría para organizar tus productos.",
+        "button": "Add category",
+        "title": "New Category",
+        "subtitle": "Add a category to organize your products.",
         "Form": {
-          "name": "Nombre de categoría"
+          "name": "Category name"
         }
       }
     },
     "Products": {
-      "title": "Productos",
+      "title": "Products",
       "Add": {
-        "button": "Agregar producto",
-        "title": "Nuevo producto",
-        "subtitle": "Añade un nuevo producto a tu catálogo."
+        "button": "Add product",
+        "title": "New product",
+        "subtitle": "Add a new product to your catalog."
       },
       "Form": {
-        "name": "",
-        "sku": "",
-        "category": "",
-        "short_desc": "",
-        "description": "",
-        "ph_desc": "ingresa tu descripción",
-        "price": "Precio",
-        "cost": "Costo del precio",
-        "stock": "",
-        "weight_dimensions": "Peso y dimensiones",
-        "weight": "",
-        "depth": "",
-        "width": "",
-        "height": "",
-        "active": "Producto activo",
-        "featured": "Producto destacado"
+        "name": "Product title",
+        "sku": "SKU",
+        "category": "Category",
+        "sel_category": "Select category",
+        "short_desc": "Short description",
+        "description": "Product description",
+        "ph_desc": "Enter your description...",
+        "price": "Price",
+        "cost": "Product cost",
+        "stock": "Stock",
+        "weight_dimensions": "Weight and dimensions",
+        "weight": "Weight",
+        "depth": "Depth",
+        "width": "Width",
+        "height": "Height",
+        "active": "Activate product",
+        "featured": "Feature product"
       }
     },
     "Users": {
-      "title": "Usuarios"
+      "title": "Users"
     },
     "Orders": {},
     "Settings": {
-      "title": "Título",
-      "description": "Descripción",
+      "title": "Title",
+      "description": "Description",
       "General": {
-        "title": "Configuración de la página de inicio",
-        "subtitle": "Personaliza la configuración de tu página de inicio"
+        "title": "Homepage settings",
+        "subtitle": "Customize your homepage settings"
       },
       "Hero": {
-        "title": "Configuración de banner",
-        "subtitle": "Personaliza la configuración de tu banner"
+        "title": "Banner settings",
+        "subtitle": "Customize your banner settings"
       },
       "Tax": {
-        "title": "Configuración de impuestos",
-        "subtitle": "Gestiona los impuestos aplicables a tus productos",
+        "title": "Tax settings",
+        "subtitle": "Manage the taxes applied to your products",
         "Form": {
-          "name": "Nombre del impuesto",
-          "rate": "Tasa impositiva predeterminada"
+          "name": "Tax name",
+          "rate": "Default tax rate"
         }
       },
       "Shipping": {
-        "title": "Configuración de envío",
-        "subtitle": "Administra las opciones de envío de tu tienda",
+        "title": "Shipping settings",
+        "subtitle": "Manage your store's shipping options",
         "Form": {
-          "time": "Tiempo de entrega",
-          "free": "Envío gratis",
-          "free_msg": "Ofrece envío gratuito en todos los pedidos.",
-          "amount": "Cantidad mínima para envío gratuito"
+          "time": "Delivery time",
+          "free": "Free shipping",
+          "free_msg": "Offer free shipping on all orders.",
+          "amount": "Minimum amount for free shipping"
         }
       }
     }

@@ -1,0 +1,119 @@
+{
+  "Profile": {
+    "account": "Mi cuenta",
+    "logout": "Salir"
+  },
+  "Contact": "Información de contacto",
+  "Phone": "Teléfono",
+  "Email": "Correo electrónico",
+  "Address": "Dirección",
+  "Search": "Buscar",
+  "Button": {
+    "save": "Guardar",
+    "cancel": "Cancelar",
+    "continue": "Confirmar"
+  },
+  "Delete": {
+    "title": "¿Borrar “{name}”?",
+    "subtitle": "¿Seguro que quieres eliminar “{name}“? Esta acción no se puede deshacer."
+  },
+  "Cart": {
+    "title": "Productos en el carro",
+    "total": "Total",
+    "button": "Agregar",
+    "empty_title": "Tu carrito está vacío",
+    "empty_subtitle": "Parece que aún no has añadido nada.",
+    "msg_title": "Producto agregado al carrito",
+    "msg_desc": "Puede ver su carrito para proceder al pago."
+  },
+  "Home": {
+    "products": "Productos destacados"
+  },
+  "Product": {
+    "information": "Información del producto",
+    "review": "Reseñas y valoraciones de clientes",
+    "no_found": "Producto no encontrado",
+    "no_found_desc": "El producto que buscas no existe o fue eliminado."
+  },
+  "Dashboard": {
+    "Menu": {
+      "category": "Categoría",
+      "products": "Productos",
+      "users": "Usuarios",
+      "orders": "Pedidos",
+      "settings": "Configuración"
+    },
+    "Category": {
+      "title": "Categorías",
+      "Add": {
+        "button": "Agregar categoría",
+        "title": "Nueva Categoría",
+        "subtitle": "Añade una categoría para organizar tus productos.",
+        "Form": {
+          "name": "Nombre de categoría"
+        }
+      }
+    },
+    "Products": {
+      "title": "Productos",
+      "Add": {
+        "button": "Agregar producto",
+        "title": "Nuevo producto",
+        "subtitle": "Añade un nuevo producto a tu catálogo."
+      },
+      "Form": {
+        "name": "Título del producto",
+        "sku": "SKU",
+        "category": "Categoría",
+        "sel_category": "Seleccionar categoría",
+        "short_desc": "Descripción corta",
+        "description": "Descripción del producto",
+        "ph_desc": "Ingresa tu descripción...",
+        "price": "Precio",
+        "cost": "Costo del producto",
+        "stock": "Existencia",
+        "weight_dimensions": "Peso y dimensiones",
+        "weight": "Peso",
+        "depth": "Profundidad",
+        "width": "Ancho",
+        "height": "Alto",
+        "active": "Activar producto",
+        "featured": "Destacar producto"
+      }
+    },
+    "Users": {
+      "title": "Usuarios"
+    },
+    "Orders": {},
+    "Settings": {
+      "title": "Título",
+      "description": "Descripción",
+      "General": {
+        "title": "Configuración de la página de inicio",
+        "subtitle": "Personaliza la configuración de tu página de inicio"
+      },
+      "Hero": {
+        "title": "Configuración de banner",
+        "subtitle": "Personaliza la configuración de tu banner"
+      },
+      "Tax": {
+        "title": "Configuración de impuestos",
+        "subtitle": "Gestiona los impuestos aplicables a tus productos",
+        "Form": {
+          "name": "Nombre del impuesto",
+          "rate": "Tasa impositiva predeterminada"
+        }
+      },
+      "Shipping": {
+        "title": "Configuración de envío",
+        "subtitle": "Administra las opciones de envío de tu tienda",
+        "Form": {
+          "time": "Tiempo de entrega",
+          "free": "Envío gratis",
+          "free_msg": "Ofrece envío gratuito en todos los pedidos.",
+          "amount": "Cantidad mínima para envío gratuito"
+        }
+      }
+    }
+  }
+}
