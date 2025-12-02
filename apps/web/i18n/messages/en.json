@@ -27,7 +27,8 @@
     "msg_desc": "You can view your cart to proceed to checkout."
   },
   "Home": {
-    "products": "Featured products"
+    "products": "Featured products",
+    "category": "Shop by Category"
   },
   "Product": {
     "information": "Product information",
@@ -50,7 +51,8 @@
         "title": "New Category",
         "subtitle": "Add a category to organize your products.",
         "Form": {
-          "name": "Category name"
+          "name": "Category name",
+          "featured": "Feature this category"
         }
       }
     },
@@ -78,7 +80,7 @@
         "width": "Width",
         "height": "Height",
         "active": "Activate product",
-        "featured": "Feature product"
+        "featured": "Feature this product"
       }
     },
     "Users": {

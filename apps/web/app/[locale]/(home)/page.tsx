@@ -1,4 +1,5 @@
 import { Banner } from '@/app/(home)/_components/banner';
+import { FeaturedCategory } from '@/app/(home)/_components/featured-category';
 import { FeaturedProducts } from '@/app/(home)/_components/featured-products';
 import { getSettings } from '@/server/query/settings';
 import type { SelectSettings } from '@selge/database/schemas/settings';
@@ -33,9 +34,13 @@ export default function Home(props: PageProps<'/[locale]'>) {
         <Banner />
       </section>
 
+      <section className="mx-auto max-w-6xl pt-12 pb-6">
+        <h3 className="mb-2 text-center font-bold text-xl">{t('category')}</h3>
+        <FeaturedCategory />
+      </section>
+
       <section className="mx-auto max-w-6xl py-6">
         <h3 className="mb-6 font-bold text-xl">{t('products')}</h3>
-
         <FeaturedProducts />
       </section>
     </>

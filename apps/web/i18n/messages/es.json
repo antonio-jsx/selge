@@ -27,7 +27,8 @@
     "msg_desc": "Puede ver su carrito para proceder al pago."
   },
   "Home": {
-    "products": "Productos destacados"
+    "products": "Productos destacados",
+    "category": "Comprar por categoría"
   },
   "Product": {
     "information": "Información del producto",

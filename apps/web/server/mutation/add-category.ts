@@ -14,4 +14,5 @@ export const addCategory = actionClient
   .action(async ({ parsedInput: { name } }) => {
     await db.insert(category).values({ name });
     updateTag('category');
+    updateTag('featured_category');
   });

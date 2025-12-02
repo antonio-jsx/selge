@@ -1,6 +1,7 @@
 import 'server-only';
 
 import { db, sql } from '@selge/database';
+import type { SelectCategory } from '@selge/database/schemas/category';
 import { cacheTag } from 'next/cache';
 
 export async function getCategory() {
@@ -14,6 +15,14 @@ export async function getCategory() {
           'productsTotal'
         ),
     },
+  });
+
+  return result;
+}
+
+export async function getFeaturedCategory(): Promise<SelectCategory[]> {
+  const result = await db.query.category.findMany({
+    where: (category, { eq }) => eq(category.isFeatured, true),
   });
 
   return result;

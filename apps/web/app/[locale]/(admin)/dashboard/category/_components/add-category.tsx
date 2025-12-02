@@ -7,6 +7,7 @@ import { addCategory } from '@/server/mutation/add-category';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useTranslations } from '@selge/i18n';
 import { Button } from '@selge/ui/components/button';
+import { Checkbox } from '@selge/ui/components/checkbox';
 import {
   Dialog,
   DialogClose,
@@ -33,6 +34,7 @@ export function AddCategory() {
     resolver: zodResolver(categorySchema),
     defaultValues: {
       name: '',
+      isFeatured: true,
     },
   });
 
@@ -67,6 +69,24 @@ export function AddCategory() {
             name="name"
             label={t('Form.name')}
             render={(field) => <Input {...field} />}
+          />
+
+          <FormField
+            control={control}
+            name="isFeatured"
+            render={(field) => (
+              <label className="flex items-center gap-2" htmlFor="featured">
+                <Checkbox
+                  id="featured"
+                  checked={field.value}
+                  onCheckedChange={(checked) => field.onChange(checked)}
+                  ref={field.ref}
+                  name={field.name}
+                  onBlur={field.onBlur}
+                />
+                {t('Form.featured')}
+              </label>
+            )}
           />
 
           <DialogFooter>
