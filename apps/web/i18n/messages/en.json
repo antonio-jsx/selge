@@ -17,8 +17,19 @@
     "subtitle": "¿Seguro que quieres eliminar “{name}“? Esta acción no se puede deshacer."
   },
   "Cart": {
-    "title": "Shopping Cart",
-    "total": "Total"
+    "title": "Productos en el carro",
+    "total": "Total",
+    "button": "Agregar",
+    "empty_title": "Tu carrito está vacío",
+    "empty_subtitle": "Parece que aún no has añadido nada.",
+    "msg_title": "Producto agregado al carrito",
+    "msg_desc": "Puede ver su carrito para proceder al pago."
+  },
+  "Product": {
+    "information": "Información del producto",
+    "review": "Reseñas y valoraciones de clientes",
+    "no_found": "Producto no encontrado",
+    "no_found_desc": "El producto que buscas no existe o fue eliminado."
   },
   "Dashboard": {
     "Menu": {

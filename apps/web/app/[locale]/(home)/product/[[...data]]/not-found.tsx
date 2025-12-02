@@ -1,3 +1,4 @@
+import { useTranslations } from '@selge/i18n';
 import {
   Empty,
   EmptyDescription,
@@ -8,16 +9,16 @@ import {
 import { BoxIcon } from 'lucide-react';
 
 export default function NotFound() {
+  const t = useTranslations('Product');
+
   return (
     <Empty>
       <EmptyHeader>
         <EmptyMedia variant="icon">
           <BoxIcon />
         </EmptyMedia>
-        <EmptyTitle>Product not found</EmptyTitle>
-        <EmptyDescription>
-          The product you are looking for does not exist or was removed.
-        </EmptyDescription>
+        <EmptyTitle>{t('no_found')}</EmptyTitle>
+        <EmptyDescription>{t('no_found_desc')}</EmptyDescription>
       </EmptyHeader>
     </Empty>
   );

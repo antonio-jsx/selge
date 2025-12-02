@@ -1,35 +1,35 @@
 import { productParamsSchema } from '@/app/(home)/product/[[...data]]/schema';
 import { AddToCart } from '@/components/add-to-cart';
 import { getProductById } from '@/server/query/products';
+import { getTranslations } from '@selge/i18n/server';
 import { Separator } from '@selge/ui/components/separator';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { cache } from 'react';
 
-type Params = Promise<{ data: string[] }>;
-type Props = {
-  params: Params;
-};
+const getValidatedProduct = cache(
+  async (props: PageProps<'/[locale]/product/[[...data]]'>) => {
+    const { data } = await props.params;
+    const parsed = productParamsSchema.safeParse(data);
 
-const getValidatedProduct = cache(async (params: Params) => {
-  const { data } = await params;
-  const parsed = productParamsSchema.safeParse(data);
+    if (!parsed.success) {
+      return null;
+    }
 
-  if (!parsed.success) {
-    return null;
+    const { id, slug } = parsed.data;
+
+    try {
+      return await getProductById(id, slug);
+    } catch {
+      return null;
+    }
   }
+);
 
-  const { id, slug } = parsed.data;
-
-  try {
-    return await getProductById(id, slug);
-  } catch {
-    return null;
-  }
-});
-
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const product = await getValidatedProduct(params);
+export async function generateMetadata(
+  props: PageProps<'/[locale]/product/[[...data]]'>
+): Promise<Metadata> {
+  const product = await getValidatedProduct(props);
   if (!product) return {};
 
   return {
@@ -38,8 +38,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default async function Product({ params }: Props) {
-  const product = await getValidatedProduct(params);
+export default async function Product(
+  props: PageProps<'/[locale]/product/[[...data]]'>
+) {
+  const t = await getTranslations('Product');
+
+  const product = await getValidatedProduct(props);
 
   if (!product) notFound();
 
@@ -58,14 +62,12 @@ export default async function Product({ params }: Props) {
 
           <Separator className="my-6 w-full" orientation="horizontal" />
 
-          <h3 className="my-6 font-bold text-lg">Product information</h3>
+          <h3 className="my-6 font-bold text-lg">{t('information')}</h3>
           {product.description}
 
           <Separator className="my-6 w-full" orientation="horizontal" />
 
-          <h3 className="my-6 font-bold text-lg">
-            Customer reviews and ratings
-          </h3>
+          <h3 className="my-6 font-bold text-lg">{t('review')}</h3>
         </div>
 
         <div className="sticky top-18 rounded-lg border p-6">

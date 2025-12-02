@@ -2,6 +2,7 @@
 
 import { useShopping } from '@/store/shopping';
 import { EmptyState } from './empty-state';
+import { useTranslations } from '@selge/i18n';
 import { Button } from '@selge/ui/components/button';
 import {
   Item,
@@ -14,14 +15,16 @@ import {
 import { ShoppingCartIcon, TrashIcon } from 'lucide-react';
 
 export function ItemsCart() {
+  const t = useTranslations('Cart');
+
   const { cart, removeFromCart } = useShopping();
 
   if (cart.length <= 0) {
     return (
       <EmptyState
         Icon={ShoppingCartIcon}
-        title="Your cart is empty"
-        description="Looks like you haven’t added anything yet."
+        title={t('empty_title')}
+        description={t('empty_subtitle')}
       />
     );
   }
