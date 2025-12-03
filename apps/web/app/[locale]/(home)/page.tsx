@@ -36,12 +36,12 @@ export default function Home(props: PageProps<'/[locale]'>) {
 
       <section className="mx-auto max-w-6xl pt-12 pb-6">
         <h3 className="mb-2 text-center font-bold text-xl">{t('category')}</h3>
-        <FeaturedCategory />
+        <FeaturedCategory locale={locale} />
       </section>
 
       <section className="mx-auto max-w-6xl py-6">
         <h3 className="mb-6 font-bold text-xl">{t('products')}</h3>
-        <FeaturedProducts />
+        <FeaturedProducts locale={locale} />
       </section>
     </>
   );

@@ -10,7 +10,7 @@ const menuItems = [
   { name: 'FAQs', href: '#' },
 ];
 
-export default function Layout(props: LayoutProps<'/[locale]'>) {
+export default function Layout({ children }: LayoutProps<'/[locale]'>) {
   return (
     <>
       <header>
@@ -45,7 +45,7 @@ export default function Layout(props: LayoutProps<'/[locale]'>) {
         </nav>
       </header>
 
-      <main className="pt-18">{props.children}</main>
+      <main className="pt-18">{children}</main>
     </>
   );
 }

@@ -74,9 +74,10 @@ export default async function Product(
           <h1 className="mb-6 font-bold text-xl">{product.name}</h1>
           <h3 className="mb-4 font-bold text-3xl">${product.price}</h3>
 
-          <AddToCart product={product} />
+          <div>{product.shortDescription}</div>
+          <Separator className="my-3 w-full" orientation="horizontal" />
 
-          <Separator className="my-6 w-full" orientation="horizontal" />
+          <AddToCart product={product} />
         </div>
       </div>
     </section>

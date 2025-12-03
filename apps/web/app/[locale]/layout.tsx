@@ -1,10 +1,11 @@
 import { Providers } from '@/components/providers';
 import { hasLocale, NextIntlClientProvider } from '@selge/i18n';
 import { routing } from '@selge/i18n/routing';
+import { setRequestLocale } from '@selge/i18n/server';
 import { Geist, Geist_Mono } from 'next/font/google';
 import { notFound } from 'next/navigation';
+
 import '../style.css';
-import { setRequestLocale } from '@selge/i18n/server';
 
 const fontSans = Geist({
   subsets: ['latin'],
@@ -23,10 +24,7 @@ export function generateStaticParams() {
 export default async function RootLayout({
   children,
   params,
-}: Readonly<{
-  children: React.ReactNode;
-  params: Promise<{ locale: string }>;
-}>) {
+}: LayoutProps<'/[locale]'>) {
   const { locale } = await params;
 
   if (!hasLocale(routing.locales, locale)) {

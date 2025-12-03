@@ -1,12 +1,14 @@
 import { getFeaturedCategory } from '@/server/query/category';
-import { Category } from './category';
 import {
   NavigationMenu,
+  NavigationMenuItem,
+  NavigationMenuLink,
   NavigationMenuList,
 } from '@selge/ui/components/navigation-menu';
 import { cacheLife, cacheTag } from 'next/cache';
+import Link from 'next/link';
 
-export async function FeaturedCategory() {
+export async function FeaturedCategory({ locale }: { locale: string }) {
   'use cache';
   cacheTag('featured_category');
   cacheLife('days');
@@ -17,7 +19,11 @@ export async function FeaturedCategory() {
     <NavigationMenu className="mx-auto">
       <NavigationMenuList>
         {category.map((item) => (
-          <Category item={item} key={item.id} />
+          <NavigationMenuItem key={item.id}>
+            <NavigationMenuLink className="rounded-full border px-4" asChild>
+              <Link href={`/${locale}/category/${item.name}`}>{item.name}</Link>
+            </NavigationMenuLink>
+          </NavigationMenuItem>
         ))}
       </NavigationMenuList>
     </NavigationMenu>
