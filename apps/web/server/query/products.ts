@@ -38,11 +38,16 @@ export async function getFeaturedProducts(): Promise<SelectProduct[]> {
   return result;
 }
 
+type SelectProductWithCategory = SelectProduct & {
+  category: { name: string } | null;
+};
+
 export async function getProductById(
   id: number,
   slug: string
-): Promise<SelectProduct | undefined> {
+): Promise<SelectProductWithCategory | undefined> {
   const product = await db.query.products.findFirst({
+    with: { category: { columns: { name: true } } },
     where: (products, { eq }) => eq(products.id, id),
   });
 
