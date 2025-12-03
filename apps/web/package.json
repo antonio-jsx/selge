@@ -15,7 +15,6 @@
     "@selge/auth": "workspace:*",
     "@selge/database": "workspace:*",
     "@selge/i18n": "workspace:*",
-    "@selge/security": "workspace:*",
     "@selge/ui": "workspace:*",
     "@t3-oss/env-nextjs": "0.13.8",
     "embla-carousel-react": "8.6.0",
