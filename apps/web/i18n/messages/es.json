@@ -30,6 +30,24 @@
     "products": "Productos destacados",
     "category": "Comprar por categoría"
   },
+  "Auth": {
+    "Signin": {
+      "Metadata": {
+        "title": "Iniciar sesión",
+        "description": "Inicia sesión en tu cuenta"
+      },
+      "title": "Inicia sesión en tu cuenta",
+      "description": "¡Bienvenido nuevamente, te hemos extrañado!"
+    },
+    "Signup": {
+      "Metadata": {
+        "title": "Inscribirse",
+        "description": "Crea una nueva cuenta"
+      },
+      "title": "Crea tu cuenta",
+      "description": "Sólo unas cuantas cosas rápidas para empezar"
+    }
+  },
   "Product": {
     "information": "Información del producto",
     "review": "Reseñas y valoraciones de clientes",
@@ -51,7 +69,8 @@
         "title": "Nueva Categoría",
         "subtitle": "Añade una categoría para organizar tus productos.",
         "Form": {
-          "name": "Nombre de categoría"
+          "name": "Nombre de categoría",
+          "featured": "Destacar esta categoría"
         }
       }
     },

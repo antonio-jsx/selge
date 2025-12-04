@@ -30,6 +30,24 @@
     "products": "Featured products",
     "category": "Shop by Category"
   },
+  "Auth": {
+    "Signin": {
+      "Metadata": {
+        "title": "Sign In",
+        "description": "Sign in to your account"
+      },
+      "title": "Login to your account",
+      "description": "Welcome back you've been missed!"
+    },
+    "Signup": {
+      "Metadata": {
+        "title": "Sign Up",
+        "description": "reate a new account"
+      },
+      "title": "Create your account",
+      "description": "Just a few quick things to get started"
+    }
+  },
   "Product": {
     "information": "Product information",
     "review": "Customer reviews and ratings",
