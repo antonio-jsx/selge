@@ -1,11 +1,7 @@
 import type { PlopTypes } from '@turbo/gen';
 
-const addFiles = [
-  'package.json',
-  'tsconfig.json',
-  'biome.json',
-  'src/index.ts',
-];
+const addFiles = ['package.json', 'tsconfig.json', 'biome.json', 'index.ts'];
+
 const actions: PlopTypes.ActionType[] = addFiles.map((file) => ({
   type: 'add',
   path: `packages/{{ name }}/${file}`,
