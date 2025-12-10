@@ -8,9 +8,9 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@selge/email": "workspace:*",
     "@react-email/preview-server": "5.0.1",
-    "react-email": "5.0.1"
+    "@selge/email": "workspace:*",
+    "react-email": "5.0.6"
   },
   "devDependencies": {
     "@selge/typescript-config": "workspace:*",
