@@ -11,4 +11,4 @@ npx @better-auth/cli generate --output ./packages/database/src/schemas --config 
 | KEY | DOCS |
 | --- | --- |
 | BETTER_AUTH_SECRET | --- |
-| DATABASE_URL | --- |
+| DATABASE_URL | [PostgreSQL](https://www.postgresql.org/) |
