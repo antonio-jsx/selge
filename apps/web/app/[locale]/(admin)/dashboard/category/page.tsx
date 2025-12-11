@@ -1,13 +1,19 @@
 import { AddCategory } from '@/app/(admin)/dashboard/category/_components/add-category';
 import { AllCategory } from '@/app/(admin)/dashboard/category/_components/all-category';
-import { useTranslations } from '@selge/i18n';
+import { type Locale, useTranslations } from '@selge/i18n';
+import { setRequestLocale } from '@selge/i18n/server';
 import type { Metadata } from 'next';
+import { use } from 'react';
 
 export const metadata: Metadata = {
   title: 'Category',
 };
 
-export default function Category() {
+export default function Category({
+  params,
+}: PageProps<'/[locale]/dashboard/category'>) {
+  const { locale } = use(params);
+  setRequestLocale(locale as Locale);
   const t = useTranslations('Dashboard.Category');
 
   return (

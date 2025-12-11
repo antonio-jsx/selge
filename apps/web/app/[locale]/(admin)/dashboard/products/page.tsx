@@ -6,6 +6,7 @@ import { Search } from '@/app/(admin)/dashboard/products/_components/search';
 import { ProductsProvider } from '@/app/(admin)/dashboard/products/context';
 import { loadSearchParams } from '@/app/(admin)/dashboard/products/searchParams';
 import { getCategory } from '@/server/query/category';
+import type { Locale } from '@selge/i18n';
 import { getTranslations } from '@selge/i18n/server';
 import {
   Table,
@@ -15,19 +16,19 @@ import {
   TableRow,
 } from '@selge/ui/components/table';
 import type { Metadata } from 'next';
-import type { SearchParams } from 'nuqs/server';
 import { Suspense } from 'react';
-
-type PageProps = {
-  searchParams: Promise<SearchParams>;
-};
 
 export const metadata: Metadata = {
   title: 'Products',
 };
 
-export default async function Products({ searchParams }: PageProps) {
-  const t = await getTranslations('Dashboard.Products');
+export default async function Products({
+  params,
+  searchParams,
+}: PageProps<'/[locale]/dashboard/products'>) {
+  const { locale } = (await params) as { locale: Locale };
+
+  const t = await getTranslations({ locale, namespace: 'Dashboard.Products' });
 
   const { q, tag } = await loadSearchParams(searchParams);
 

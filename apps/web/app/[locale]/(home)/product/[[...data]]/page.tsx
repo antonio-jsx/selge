@@ -1,6 +1,7 @@
 import { productParamsSchema } from '@/app/(home)/product/[[...data]]/schema';
 import { AddToCart } from '@/components/add-to-cart';
 import { getProductById } from '@/server/query/products';
+import type { Locale } from '@selge/i18n';
 import { getTranslations } from '@selge/i18n/server';
 import { Separator } from '@selge/ui/components/separator';
 import type { Metadata } from 'next';
@@ -41,7 +42,8 @@ export async function generateMetadata(
 export default async function Product(
   props: PageProps<'/[locale]/product/[[...data]]'>
 ) {
-  const t = await getTranslations('Product');
+  const { locale } = (await props.params) as { locale: Locale };
+  const t = await getTranslations({ locale, namespace: 'Product' });
 
   const product = await getValidatedProduct(props);
 

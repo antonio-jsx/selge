@@ -1,3 +1,5 @@
+'use client';
+
 import { useTranslations } from '@selge/i18n';
 import {
   Empty,
