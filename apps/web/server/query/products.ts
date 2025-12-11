@@ -2,7 +2,7 @@ import 'server-only';
 
 import type { ProductsWithCategory, SearchProducts } from '@/lib/types';
 import { slugify } from '@/lib/utils';
-import { and, db, eq, getTableColumns, ilike } from '@selge/database';
+import { and, asc, db, eq, getTableColumns, ilike } from '@selge/database';
 import { category } from '@selge/database/schemas/category';
 import { products, type SelectProduct } from '@selge/database/schemas/products';
 
@@ -25,7 +25,8 @@ export async function getProducts({
         search ? ilike(p.name, `%${search}%`) : undefined,
         tag ? ilike(c.name, `%${tag}%`) : undefined
       )
-    );
+    )
+    .orderBy(asc(products.id));
 
   return result;
 }

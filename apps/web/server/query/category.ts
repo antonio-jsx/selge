@@ -15,6 +15,7 @@ export async function getCategory() {
           'productsTotal'
         ),
     },
+    orderBy: (category, { asc }) => [asc(category.id)],
   });
 
   return result;
